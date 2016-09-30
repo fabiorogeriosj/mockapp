@@ -33,8 +33,8 @@ var packageJson = JSON.parse(fs.readFileSync(__dirname+'/../package.json', 'utf8
 					console.log("                                               ".bgYellow.black);
 					console.log("  Hey bro, there is a new version: ".bgYellow.black + packageJson.version.bgYellow.black + "       ".bgYellow.black);
 					console.log("                                               ".bgYellow.black);
-					console.log("  No panic, just update mockapp:            ".bgYellow.black);
-					console.log("  npm install mockapp -g                    ".bgYellow.black);
+					console.log("  No panic, just update mockapp:               ".bgYellow.black);
+					console.log("  npm install mockapp -g                       ".bgYellow.black);
 					console.log("                                               ".bgYellow.black);
 				}
 		  }

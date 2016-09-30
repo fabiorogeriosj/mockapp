@@ -23,6 +23,7 @@
   "homepage": "https://github.com/fabiorogeriosj/mockapp#readme",
   "dependencies": {
     "colors": "^1.1.2",
+    "minimist": "^1.2.0",
     "request": "^2.75.0"
   },
   "bin": {

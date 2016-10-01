@@ -40,10 +40,9 @@ module.exports = {
       }
     },
 
-    checkMessageRepo: function (){
+    checkMessageRepo: function (commands){
       request(packageJson.messageFromRepo, function (error, response, body) {
   		  if (!error && response.statusCode == 200) {
-
           try {
             var messageFromRepo = JSON.parse(body);
             message.writeMessage("SHOW_MESSAGE_FROM_REPO", messageFromRepo);

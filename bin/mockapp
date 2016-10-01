@@ -49,13 +49,13 @@ var commands = getCommands();
 					console.log("  Hey bro, there is a new version: ".bgYellow.black + packageJson.version.bgYellow.black + "       ".bgYellow.black);
 					console.log("                                               ".bgYellow.black);
 					console.log("  No panic, just update mockapp:               ".bgYellow.black);
-					console.log("  npm install mockapp -g                       ".bgYellow.black);
+					console.log("  npm install -g mockapp                       ".bgYellow.black);
 					console.log("                                               ".bgYellow.black);
 				}
 		  }
 		})
 	}
-	
+
 	if(Object.keys(commands).length <= 1){
 			showIntro();
 	} else {

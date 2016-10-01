@@ -8,7 +8,7 @@
   },
   "docs": "https://github.com/fabiorogeriosj/mockapp/blob/master/README.md",
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
-  "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.js",
+  "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.json",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabiorogeriosj/mockapp.git"

@@ -43,9 +43,14 @@ module.exports = {
     checkMessageRepo: function (){
       request(packageJson.messageFromRepo, function (error, response, body) {
   		  if (!error && response.statusCode == 200) {
-  		    var messageFromRepo = JSON.parse(body);
-          if(messageFromRepo && messageFromRepo.msg){
-            message.writeMessage("SHOW_MESSAGE_FROM_REPO", messageFromRepo.msg);
+          console.log("JSON.parse(body): ", JSON.parse(body))
+          try {
+            var messageFromRepo = JSON.parse(body);
+            if(messageFromRepo && messageFromRepo.msg){
+              message.writeMessage("SHOW_MESSAGE_FROM_REPO", messageFromRepo.msg);
+            }
+          } catch (e) {
+
           }
   		  }
   		})

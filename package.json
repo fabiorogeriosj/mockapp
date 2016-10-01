@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "docs": "https://github.com/fabiorogeriosj/mockapp/blob/master/README.md",
+  "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
+  "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabiorogeriosj/mockapp.git"
@@ -24,6 +27,8 @@
   "dependencies": {
     "colors": "^1.1.2",
     "minimist": "^1.2.0",
+    "opener": "^1.4.2",
+    "os-locale": "^1.4.0",
     "request": "^2.75.0"
   },
   "bin": {

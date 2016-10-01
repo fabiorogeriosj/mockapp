@@ -9,7 +9,7 @@ The Installation is very simple, but first you need to install [Node.js](https:/
 
 After, just execute command in your terminal:
 
-``` 
+```
 npm install -g cordova mockapp
 ```
 
@@ -17,6 +17,14 @@ npm install -g cordova mockapp
 
 ```
 mockapp new MyFirstApp
+```
+
+```
+mockapp new "My First App"
+```
+
+```
+mockapp new MyFirstApp --id "com.br.firstapp" --name "My First App"
 ```
 
 ## Preview app
@@ -31,16 +39,43 @@ mockapp preview
 mockapp build android
 ```
 
-```
-mockapp build ios
-```
-
 ## Run device or emulate
 
 ```
 mockapp run android
 ```
 
+## Components
+
 ```
-mockapp run ios
+mockapp add component list
+```
+
+```
+mockapp add component list-avatar
+```
+
+```
+mockapp add component button-login-facebook
+```
+
+## Tools
+
+View docs
+
+```
+mockapp docs
+```
+
+View issues
+
+```
+mockapp bugs
+```
+
+
+Remove app
+
+```
+mockapp delete MyFirstApp
 ```

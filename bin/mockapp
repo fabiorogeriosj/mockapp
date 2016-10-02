@@ -62,10 +62,10 @@ var commands = getCommands();
 
 	osLocale(function (err, locale) {
 		if(!err){
-			message.setLanguage(locale);
+			message.setLanguage(locale, commands);
 		}
-		//valid commands
-		if(Object.keys(commands).length <= 1){
+		//valid commands		
+		if(!commands._.length){
 				showIntro();
 		} else {
 			if(commands.new){

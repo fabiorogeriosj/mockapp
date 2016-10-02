@@ -10,8 +10,11 @@ module.exports = {
       console.log(msg)
     },
 
-    setLanguage: function (locale){
+    setLanguage: function (locale, commands){
       var l = (locale + "").split("_")[0];
+      if(commands.lang){
+          l = commands.lang;
+      }
       GLOBAL.lang = GLOBAL.languages[l] ? l : GLOBAL.lang;
       langfile = require('./../lang/'+GLOBAL.lang);
     },

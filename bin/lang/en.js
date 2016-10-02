@@ -9,7 +9,7 @@ module.exports = {
     ERROR_CORDOVA: "Error exec cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp delete MyFirstApp.",
-    PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " The app's name was reported incorrectly, examples: \nmock new MyFirstApp \nor \n mockapp new \"My First app\"",
+    PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " The app's name was reported incorrectly, examples: \nmockapp new MyFirstApp \nor \nmockapp new \"My First app\"",
     APP_CREATED_SUCCESS: " Cool! ".bgGreen.black + " Successfully created app :)",
     APP_DELETED_SUCCESS: " Cool! ".bgGreen.black + " Successfully deleted app :)",
     ID_APP_INVALID: " Ops! ".bgRed.white + " Informed id is not available, try another.",

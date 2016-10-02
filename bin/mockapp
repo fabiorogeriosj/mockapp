@@ -28,7 +28,7 @@ var getCommands = function (){
 	return argv;
 }
 
-var commands = getCommands();
+GLOBAL.commands = getCommands();
 
 (function mockapp() {
 
@@ -62,20 +62,20 @@ var commands = getCommands();
 
 	osLocale(function (err, locale) {
 		if(!err){
-			message.setLanguage(locale, commands);
+			message.setLanguage(locale);
 		}
-		//valid commands		
+		//valid commands
 		if(!commands._.length){
 				showIntro();
 		} else {
 			if(commands.new){
-				command_new.run(commands)
+				command_new.run()
 			} else if(commands.delete){
-				command_delete.run(commands)
+				command_delete.run()
 			} else if(commands.docs){
-				command_docs.run(commands)
+				command_docs.run()
 			} else if(commands.bugs){
-				command_bugs.run(commands)
+				command_bugs.run()
 			} else {
 				message.console(message.getMessage("COMMAND_NOT_FOUND"))
 			}

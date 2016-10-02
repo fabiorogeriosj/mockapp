@@ -3,7 +3,7 @@ var fs = require('fs');
 var readline = require('readline');
 
 module.exports = {
-    run : function (commands){
+    run : function (){
 
           message.console(message.getMessage("START_DELETE_APP"));
           if(commands._.length < 2){

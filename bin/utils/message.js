@@ -10,7 +10,7 @@ module.exports = {
       console.log(msg)
     },
 
-    setLanguage: function (locale, commands){
+    setLanguage: function (locale){
       var l = (locale + "").split("_")[0];
       if(commands.lang){
           l = commands.lang;
@@ -43,15 +43,19 @@ module.exports = {
       }
     },
 
-    checkMessageRepo: function (commands){
+    checkMessageRepo: function (){
       var self = this;
       request(packageJson.messageFromRepo, function (error, response, body) {
   		  if (!error && response.statusCode == 200) {
           try {
             var messageFromRepo = JSON.parse(body);
-            self.writeMessage("SHOW_MESSAGE_FROM_REPO", messageFromRepo);
+            if(Object.keys(messageFromRepo).length){
+              self.writeMessage("SHOW_MESSAGE_FROM_REPO", messageFromRepo);
+            }
           } catch (e) {
-            console.log(e)
+            if(commands.log){
+              console.log(e)
+            }
           }
   		  }
   		})

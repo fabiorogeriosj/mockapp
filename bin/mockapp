@@ -17,6 +17,7 @@ var command_new = require('./command/command_new');
 var command_delete = require('./command/command_delete');
 var command_docs = require('./command/command_docs');
 var command_bugs = require('./command/command_bugs');
+var command_config = require('./command/command_config');
 
 
 var getCommands = function (){
@@ -76,6 +77,8 @@ GLOBAL.commands = getCommands();
 				command_docs.run()
 			} else if(commands.bugs){
 				command_bugs.run()
+			} else if(commands.config){
+				command_config.run()
 			} else {
 				message.console(message.getMessage("COMMAND_NOT_FOUND"))
 			}

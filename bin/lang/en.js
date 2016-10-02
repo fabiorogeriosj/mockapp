@@ -17,10 +17,17 @@ module.exports = {
     START_DELETE_APP: "Deleting application...".green,
     APP_NOT_EXIST_IN_DIRECTORY: " Ops! ".bgRed.white + " This app does not exist in this directory.",
     NOT_DELETED_APP: " Ops! ".bgRed.white + " Could not delete the application.",
-    CONFIRMATION_DELETE_APP: " Talk! ".bgYellow.black + " Do you want to delete the application? (yes/no) ",
+    CONFIRMATION_DELETE_APP: "Do you want to delete the application? (yes/no) ",
     ANSWER_YES: "yes",
     ANSWER_NO: "no",
     COMMAND_NOT_FOUND: " Ops! ".bgRed.white + " Command not found, for check docs mockapp run: mockapp docs.",
+    YOU_NOT_INTO_PROJECT: " Ops! ".bgRed.white + " You are not in the folder of a project.",
+    UPDATE_CONFIG: " Warning! ".bgYellow.black + " Leave blank for no change!",
+    UPDATE_CONFIG_NEW_ID: "Enter a new value for id: ",
+    UPDATE_CONFIG_NEW_NAME: "Enter a new value for name: ",
+    UPDATE_CONFIG_NEW_VERSION: "Enter a new value for version: ",
+    UPDATE_CONFIG_FAILED:  " Ops! ".bgRed.white + " Unable to change settings :(",
+    UPDATE_CONFIG_SUCCESS:  " Cool! ".bgGreen.black + " Successfully changed configs :)",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -32,6 +39,12 @@ module.exports = {
     },
     SHOW_MESSAGE_FROM_REPO: function(msg){
       console.log(msg["en"] ? msg["en"].bgYellow.black : msg[lang].bgYellow.black);
+    },
+    SHOW_CONFIG_APP: function (config){
+      console.log(" Info! ".bgCyan.black + " Config your app: ");
+      console.log("id: "+config.id);
+      console.log("name: "+config.name);
+      console.log("version: "+config.version);
     }
 
 }

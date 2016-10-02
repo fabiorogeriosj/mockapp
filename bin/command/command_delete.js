@@ -1,6 +1,6 @@
 var message = require('./../utils/message');
 var fs = require('fs');
-var readline = require('readline');
+var inquirer = require('inquirer');
 
 module.exports = {
     run : function (){
@@ -11,12 +11,13 @@ module.exports = {
           } else {
             var path = commands._[1];
             if( fs.existsSync(path) ) {
-              var rl = readline.createInterface({
-                input: process.stdin,
-                output: process.stdout
-              });
-              rl.question(message.getMessage("CONFIRMATION_DELETE_APP"), (answer) => {
-                if(answer === message.getMessage("ANSWER_YES")){
+              var questions = [{
+                  type: 'input',
+                  name: 'delete',
+                  message: message.getMessage("CONFIRMATION_DELETE_APP")
+              }];
+              inquirer.prompt(questions).then(function (answers) {
+                if(answers.delete  === message.getMessage("ANSWER_YES")){
                   try {
                     var deleteRecursive = function (f){
                       fs.readdirSync(f).forEach(function(file,index){
@@ -39,8 +40,7 @@ module.exports = {
                     }
                   }
                 }
-                rl.close();
-            });
+              });
           } else {
             message.console(message.getMessage("APP_NOT_EXIST_IN_DIRECTORY"))
           }

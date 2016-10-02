@@ -3,7 +3,7 @@ var message = require('./../utils/message');
 var cordova = require('./../utils/cordova');
 
 module.exports = {
-    run : function (commands){
+    run : function (){
 
       message.console(message.getMessage("START_NEW_APP"))
 

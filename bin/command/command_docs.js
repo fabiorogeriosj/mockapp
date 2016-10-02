@@ -1,7 +1,7 @@
 var opener = require("opener");
 
 module.exports = {
-    run : function (commands){
+    run : function (){
         opener(packageJson.docs);
     }
 }

@@ -5,7 +5,8 @@ module.exports = {
     VERSION_INSTALED: "Version instaled",
     ERROR_EXEC_MOCKAPP: "OMG :(\nError in mockapp\n",
     WRITE_LANG_NOT_FOUND: "Message to show not found!".red,
-    START_NEW_APP: "Creating a new application...".green,
+    START_NEW_APP: "Starting preview app...".green,
+    START_PREVIEW_APP: "I...".green,
     ERROR_CORDOVA: "Error exec cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp delete MyFirstApp.",
@@ -28,6 +29,9 @@ module.exports = {
     UPDATE_CONFIG_NEW_VERSION: "Enter a new value for version: ",
     UPDATE_CONFIG_FAILED:  " Ops! ".bgRed.white + " Unable to change settings :(",
     UPDATE_CONFIG_SUCCESS:  " Cool! ".bgGreen.black + " Successfully changed configs :)",
+    PREVIEW_RUNING_ON:  " Cool! ".bgGreen.black + " Preview running on port: ",
+    PREVIEW_STOP: " Warning! ".bgYellow.black + " Press Ctrl+c to stop the preview!",
+    COMPONENT_NOT_INSTALLED: "This component not installed!",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);

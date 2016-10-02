@@ -61,6 +61,16 @@ mockapp add component button-login-facebook
 
 ## Tools
 
+Config app
+
+```
+mockapp config
+```
+
+```
+mockapp config update
+```
+
 View docs
 
 ```

@@ -1,0 +1,72 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    letter-spacing: -0.3px;
+}
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-color:#fff;
+    font-family: 'Ubuntu', sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+.component-not-installed {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #e68b8b;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+.component-not-installed b {
+  color: #f55c5c;
+}
+.header {
+  height: 48px;
+  padding: 8px
+}
+.header h1 {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+  margin-left: 10px;
+  padding-top: 5px
+}
+.header.green {
+  background-color: #00b698;
+  color: #fff;
+}
+.header.green button {
+  color: #fff;
+}
+.header button {
+  font-size: 30px;
+}
+.header button.left {
+  float: left;
+}
+.header button.right {
+  float: right;
+}
+button.icon {
+  background: none;
+  border: none;
+}
+.header button:active {
+  color: rgba(255, 255, 255, 0.2);
+}
+button {
+  -webkit-transition: color 500ms ease;
+  -moz-transition: color 500ms ease;
+  -ms-transition: color 500ms ease;
+  -o-transition: color 500ms ease;
+  transition: color 500ms ease;
+}

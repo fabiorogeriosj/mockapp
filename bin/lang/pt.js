@@ -7,6 +7,8 @@ module.exports = {
     WRITE_LANG_NOT_FOUND: "Não foi encontrado a mensagem a ser exibida!".red,
     START_NEW_APP: "Criando um novo aplicativo...".green,
     START_PREVIEW_APP: "Iniciando preview app...".green,
+    START_BUILD_APP: "Iniciando build do app...".green,
+    START_ADD_PLATFORM: "Adicionando plataforma...".green,
     ERROR_CORDOVA: "Erro ao executar cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp delete MyFirstApp.",
@@ -32,6 +34,9 @@ module.exports = {
     PREVIEW_RUNING_ON:  " Show! ".bgGreen.black + " Preview rodando na porta: ",
     PREVIEW_STOP: " Atenção! ".bgYellow.black + " Pressione Ctrl+c para parar o preview!",
     COMPONENT_NOT_INSTALLED: "Este componente não está instalado!",
+    PLATFORM_NOT_INFORMED_BUILD: " Ops! ".bgRed.white + " Você deve informar a plataforma, exemplo: mockapp build android.",
+    PLATFORM_ADDED: " Show! ".bgGreen.black + " Plataforma adicionada com sucesso!",
+    PLATFORM_NOT_SUPPORTED: " Ops! ".bgRed.white + " Plataforma informada não suportada, veja documentaçao para mais detalhes: mockapp docs.",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);

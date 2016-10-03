@@ -6,7 +6,9 @@ module.exports = {
     ERROR_EXEC_MOCKAPP: "OMG :(\nError in mockapp\n",
     WRITE_LANG_NOT_FOUND: "Message to show not found!".red,
     START_NEW_APP: "Starting preview app...".green,
-    START_PREVIEW_APP: "I...".green,
+    START_PREVIEW_APP: "Starting preview app...".green,
+    START_BUILD_APP: "Starting build app...".green,
+    START_ADD_PLATFORM: "Adding platform...".green,
     ERROR_CORDOVA: "Error exec cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp delete MyFirstApp.",
@@ -32,6 +34,9 @@ module.exports = {
     PREVIEW_RUNING_ON:  " Cool! ".bgGreen.black + " Preview running on port: ",
     PREVIEW_STOP: " Warning! ".bgYellow.black + " Press Ctrl+c to stop the preview!",
     COMPONENT_NOT_INSTALLED: "This component not installed!",
+    PLATFORM_NOT_INFORMED_BUILD: " Ops! ".bgRed.white + " You must enter the platform, eg mockapp build android.",
+    PLATFORM_ADDED: " Cool! ".bgGreen.black + " Platform successfully added!",
+    PLATFORM_NOT_SUPPORTED: " Ops! ".bgRed.white + " Unsupported informed platform, see documentation for more details: mockapp docs.",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);

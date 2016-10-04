@@ -9,12 +9,17 @@ module.exports = {
     START_PREVIEW_APP: "Iniciando preview app...".green,
     START_BUILD_APP: "Iniciando build do app...".green,
     START_ADD_PLATFORM: "Adicionando plataforma...".green,
+    START_JAVA_INSTALL: "Iniciando instalação do Java JDK...".green,
+    START_ANDROID_INSTALL: "Iniciando instalação do Android SDK...".green,
     ERROR_CORDOVA: "Erro ao executar cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp delete MyFirstApp.",
     PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " O nome do app foi informado de forma incorreta, exemplos: \nmock new MyFirstApp \nou \nmockapp new \"My First app\"",
     APP_CREATED_SUCCESS: " Show! ".bgGreen.black + " App criado com sucesso :)",
     APP_DELETED_SUCCESS: " Show! ".bgGreen.black + " App deletado com sucesso :)",
+    BUILD_SUCCESS: " Show! ".bgGreen.black + " Build concluído com sucesso :)",
+    INSTALL_JAVA_SUCCESS: " Show! ".bgGreen.black + " Java JDK instalado com sucesso :)",
+    INSTALL_ANDROID_SUCCESS: " Show! ".bgGreen.black + " Android SDK instalado com sucesso :)",
     ID_APP_INVALID: " Ops! ".bgRed.white + " O id informado não é valido, tente usar outro.",
     APP_EXISTS: " Ops! ".bgRed.white + " Um app com este nome já existe neste diretório, escolha outro nome ou delete o existente.",
     START_DELETE_APP: "Deletando aplicativo...".green,
@@ -40,6 +45,10 @@ module.exports = {
     DOWNLOAD_ANDROID_SDK: "Baixando Android SDK para seu S.O...".green,
     DOWNLOAD_FAILED: " Ops! ".bgRed.white + " Download failed :(\nPor favor, tente mais tarde ou faça a instalação do SDK manual, veja em: mockapp docs.",
     DOWNLOADING: " Progresso",
+    BUIDING_APP: "Building app...",
+    INSTALLING_JAVA: "Instalando Java JDK...",
+    INSTALLING_ANDROID: "Instalando Android SDK...",
+    VERIFY_ENVIRONMENT: "Verificando dependências...".green,
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -57,5 +66,16 @@ module.exports = {
       console.log("id: "+config.id);
       console.log("nome: "+config.name);
       console.log("versão: "+config.version);
+    },
+    NEED_INSTALL_ENVIRONMENT: function (){
+      console.log("");
+      console.log("                                               ".bgYellow.black);
+      console.log("  Seu ambiente não está preparado para gerar   ".bgYellow.black);
+      console.log("  o aplicativo final, mas sem pânico!          ".bgYellow.black);
+      console.log("  Deixe que o mockapp cuide disto :)           ".bgYellow.black);
+      console.log("                                               ".bgYellow.black);
+      console.log("  Relaxe e aguarde a conclusão da instalação!  ".bgYellow.black);
+      console.log("                                               ".bgYellow.black);
+      console.log("");
     }
 }

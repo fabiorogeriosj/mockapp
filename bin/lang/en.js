@@ -9,12 +9,17 @@ module.exports = {
     START_PREVIEW_APP: "Starting preview app...".green,
     START_BUILD_APP: "Starting build app...".green,
     START_ADD_PLATFORM: "Adding platform...".green,
+    START_JAVA_INSTALL: "Starting install Java JDK...".green,
+    START_ANDROID_INSTALL: "Starting install Android SDK...".green,
     ERROR_CORDOVA: "Error exec cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp delete MyFirstApp.",
     PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " The app's name was reported incorrectly, examples: \nmockapp new MyFirstApp \nor \nmockapp new \"My First app\"",
     APP_CREATED_SUCCESS: " Cool! ".bgGreen.black + " Successfully created app :)",
     APP_DELETED_SUCCESS: " Cool! ".bgGreen.black + " Successfully deleted app :)",
+    BUILD_SUCCESS: " Cool! ".bgGreen.black + " Build successfully app :)",
+    INSTALL_JAVA_SUCCESS: " Show! ".bgGreen.black + " Java JDK successfully installed :)",
+    INSTALL_ANDROID_SUCCESS: " Show! ".bgGreen.black + " Android SDK successfully installed :)",
     ID_APP_INVALID: " Ops! ".bgRed.white + " Informed id is not available, try another.",
     APP_EXISTS: " Ops! ".bgRed.white + " An app with this name already exists in this directory, choose another name or delete the existing one.",
     START_DELETE_APP: "Deleting application...".green,
@@ -40,6 +45,10 @@ module.exports = {
     DOWNLOAD_ANDROID_SDK: "Downloading android sdk for your S.O...".green,
     DOWNLOAD_FAILED: " Ops! ".bgRed.white + " Download failed :(\nPlease try again later or make manual installation SDK, see: mockapp docs.",
     DOWNLOADING: " Progress",
+    BUIDING_APP: "Building app...",
+    INSTALLING_JAVA: "Installing Java JDK...",
+    INSTALLING_ANDROID: "Installing Android SDK...",
+    VERIFY_ENVIRONMENT: "Checking dependencies...".green,
 
 
     THERE_IS_NEW_VERSION: function(packageJson){
@@ -58,6 +67,17 @@ module.exports = {
       console.log("id: "+config.id);
       console.log("name: "+config.name);
       console.log("version: "+config.version);
+    },
+    NEED_INSTALL_ENVIRONMENT: function (){
+      console.log("");
+      console.log("                                               ".bgYellow.black);
+      console.log("  Your environment is not prepared to generate ".bgYellow.black);
+      console.log("  the final application, but without panic!    ".bgYellow.black);
+      console.log("  Let mockapp care of it :)                    ".bgYellow.black);
+      console.log("                                               ".bgYellow.black);
+      console.log("  Relax and wait completion of the install!    ".bgYellow.black);
+      console.log("                                               ".bgYellow.black);
+      console.log("");
     }
 
 }

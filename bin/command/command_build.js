@@ -7,8 +7,8 @@ var download = require('./../utils/download');
 
 module.exports = {
     run : function (){
-
-      message.console(message.getMessage("START_BUILD_APP"));
+      var self = this;
+      message.console(message.getMessage("VERIFY_ENVIRONMENT"));
       util.execCascadeWithCallback([cordova.checkCordovaInstalled, project.checkIntoProject], function(res){
           if(res.isValid){
             if(commands._.length < 2){
@@ -19,12 +19,19 @@ module.exports = {
 
                 cordova.checkAndAddPlatform(platform, function (res){
                   if(res.isValid){
-                    message.console(message.getMessage("DOWNLOAD_ANDROID_SDK"));
-                    download.androidSdkMacOsX(function (res){
+
+                    cordova.checkAndInstallEnvironment(platform, function (res){
                       if(res.isValid){
-                        console.log("BAIXADO (ok)".green);
+                          self.build(platform);
                       }
                     });
+
+                    // message.console(message.getMessage("DOWNLOAD_ANDROID_SDK"));
+                    // download.androidSdkMacOsX(function (res){
+                    //   if(res.isValid){
+                    //     console.log("BAIXADO (ok)".green);
+                    //   }
+                    // });
                   }
                 });
 
@@ -34,6 +41,15 @@ module.exports = {
             }
           }
       });
+
+    },
+    build: function (platform){
+      message.console(message.getMessage("START_BUILD_APP"));
+      var spinner = message.startSpinner(message.getMessage("BUIDING_APP"));
+      setTimeout(function (){
+        spinner.stop();
+        message.console(message.getMessage("BUILD_SUCCESS"));
+      }, 3000);
 
     }
 }

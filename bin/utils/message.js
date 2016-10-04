@@ -1,4 +1,6 @@
 var request = require('request');
+var cli = require('clui');
+var spinner = cli.Spinner;
 //default lang
 GLOBAL.lang = 'en';
 
@@ -8,6 +10,12 @@ module.exports = {
 
     console : function (msg){
       console.log(msg)
+    },
+
+    startSpinner: function (msg){
+      var countdown = new spinner(msg);
+      countdown.start();
+      return countdown;
     },
 
     setLanguage: function (locale){

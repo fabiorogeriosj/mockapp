@@ -3,6 +3,7 @@ var message = require('./../utils/message');
 var cordova = require('./../utils/cordova');
 var project = require('./../utils/project');
 var util = require('./../utils/util');
+var download = require('./../utils/download');
 
 module.exports = {
     run : function (){
@@ -18,8 +19,12 @@ module.exports = {
 
                 cordova.checkAndAddPlatform(platform, function (res){
                   if(res.isValid){
-                    console.log("Checado e instalado...");
-                    console.log("TODO: Verificar ambiente plataforma");
+                    message.console(message.getMessage("DOWNLOAD_ANDROID_SDK"));
+                    download.androidSdkMacOsX(function (res){
+                      if(res.isValid){
+                        console.log("BAIXADO (ok)".green);
+                      }
+                    });
                   }
                 });
 

@@ -37,6 +37,10 @@ module.exports = {
     PLATFORM_NOT_INFORMED_BUILD: " Ops! ".bgRed.white + " You must enter the platform, eg mockapp build android.",
     PLATFORM_ADDED: " Cool! ".bgGreen.black + " Platform successfully added!",
     PLATFORM_NOT_SUPPORTED: " Ops! ".bgRed.white + " Unsupported informed platform, see documentation for more details: mockapp docs.",
+    DOWNLOAD_ANDROID_SDK: "Downloading android sdk for your S.O...".green,
+    DOWNLOAD_FAILED: " Ops! ".bgRed.white + " Download failed :(\nPlease try again later or make manual installation SDK, see: mockapp docs.",
+    DOWNLOADING: " Progress",
+
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);

@@ -9,6 +9,7 @@
   "docs": "https://github.com/fabiorogeriosj/mockapp/blob/master/README.md",
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
   "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.json",
+  "androidSdkMacOsX": "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabiorogeriosj/mockapp.git"
@@ -32,7 +33,9 @@
     "minimist": "^1.2.0",
     "opener": "^1.4.2",
     "os-locale": "^1.4.0",
+    "progress": "^1.1.8",
     "request": "^2.75.0",
+    "request-progress": "^2.0.1",
     "serve-static": "^1.11.1",
     "xml2js": "^0.4.17"
   },

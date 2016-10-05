@@ -49,7 +49,16 @@ module.exports = {
     INSTALLING_JAVA: "Installing Java JDK...",
     INSTALLING_ANDROID: "Installing Android SDK...",
     VERIFY_ENVIRONMENT: "Checking dependencies...".green,
-
+    TYPE_NOT_FOUND_ADD: " Ops! ".bgRed.white + " You must tell what will add the app.",
+    TYPE_NOT_EXIST_ADD: " Ops! ".bgRed.white + " The type entered is not valid.",
+    NAME_NOT_FOUND_ADD_CONTROLLER: " Ops! ".bgRed.white + " You must inform the controller name.",
+    NAME_NOT_FOUND_ADD_SERVICE: " Ops! ".bgRed.white + " You must inform the service name.",
+    ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Could not create controller :(",
+    ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Could not create service :(",
+    CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a controller with that name.",
+    SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a service with that name.",
+    PARAMS_INCORRECT_ADD_CONTROLLER: " Ops! ".bgRed.white + " The controller's name was reported incorrectly, eg: \nmockapp add controller userController",
+    PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " The service's name was reported incorrectly, eg: \nmockapp add service userService",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -58,6 +67,18 @@ module.exports = {
       console.log("  No panic, just update mockapp:               ".bgYellow.black);
       console.log("  npm install -g mockapp                       ".bgYellow.black);
       console.log("                                               ".bgYellow.black);
+    },
+    ADD_CONTROLLER_SUCCESS: function(obj){
+      console.log(" Cool! ".bgGreen.black + " Controller successfully created :)");
+      console.log("Path:", obj.fileName.yellow);
+      console.log("Add the attribute down in his element:");
+      console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
+    },
+    ADD_SERVICE_SUCCESS: function(obj){
+      console.log(" Cool! ".bgGreen.black + " Service successfully created :)");
+      console.log("Path:", obj.fileName.yellow);
+      console.log("Import the service in your controller:");
+      console.log("app.controller('nameController', ['$scope, "+obj.name.yellow+"', function($scope, "+obj.name.yellow+") { ");
     },
     SHOW_MESSAGE_FROM_REPO: function(msg){
       console.log(msg["en"] ? msg["en"].bgYellow.black : msg[lang].bgYellow.black);
@@ -78,6 +99,10 @@ module.exports = {
       console.log("  Relax and wait completion of the install!    ".bgYellow.black);
       console.log("                                               ".bgYellow.black);
       console.log("");
+    },
+    CHANGE_INDEX_ADD_CONTROLLER_FAILED: function (file){
+      console.log(" Ops! ".bgRed.white + " Unable to import file.");
+      console.log(" Add the index.html file the code below: ");
+      console.log(' <script src="js/controllers/'+file+'"></script> ');
     }
-
 }

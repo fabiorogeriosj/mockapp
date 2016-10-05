@@ -14,7 +14,7 @@ module.exports = {
     ERROR_CORDOVA: "Erro ao executar cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp delete MyFirstApp.",
-    PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " O nome do app foi informado de forma incorreta, exemplos: \nmock new MyFirstApp \nou \nmockapp new \"My First app\"",
+    PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " O nome do app foi informado de forma incorreta, exemplos: \nmockapp new MyFirstApp \nou \nmockapp new \"My First app\"",
     APP_CREATED_SUCCESS: " Show! ".bgGreen.black + " App criado com sucesso :)",
     APP_DELETED_SUCCESS: " Show! ".bgGreen.black + " App deletado com sucesso :)",
     BUILD_SUCCESS: " Show! ".bgGreen.black + " Build concluído com sucesso :)",
@@ -49,6 +49,16 @@ module.exports = {
     INSTALLING_JAVA: "Instalando Java JDK...",
     INSTALLING_ANDROID: "Instalando Android SDK...",
     VERIFY_ENVIRONMENT: "Verificando dependências...".green,
+    TYPE_NOT_FOUND_ADD: " Ops! ".bgRed.white + " Você deve informar o que vai adicionar no app.",
+    TYPE_NOT_EXIST_ADD: " Ops! ".bgRed.white + " O tipo informado não é valido.",
+    NAME_NOT_FOUND_ADD_CONTROLLER: " Ops! ".bgRed.white + " Você deve informar o nome do controller.",
+    NAME_NOT_FOUND_ADD_SERVICE: " Ops! ".bgRed.white + " Você deve informar o nome do service.",
+    ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Não foi possível criar controller :(",
+    ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar service :(",
+    CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um controller com esse nome.",
+    SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um service com esse nome.",
+    PARAMS_INCORRECT_ADD_CONTROLLER: " Ops! ".bgRed.white + " O nome do controller foi informado de forma incorreta, exemplos: \nmockapp add controller userController.",
+    PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " O nome do service foi informado de forma incorreta, exemplos: \nmockapp add service userService.",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -57,6 +67,18 @@ module.exports = {
       console.log("  Sem pânico, apenas faça o update:            ".bgYellow.black);
       console.log("  npm install -g mockapp                       ".bgYellow.black);
       console.log("                                               ".bgYellow.black);
+    },
+    ADD_CONTROLLER_SUCCESS: function(obj){
+      console.log(" Show! ".bgGreen.black + " Controller criado com sucesso :)");
+      console.log("Caminho:", obj.fileName.yellow);
+      console.log("Adicione o atributo abaixo em seu elemento:");
+      console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
+    },
+    ADD_SERVICE_SUCCESS: function(obj){
+      console.log(" Show! ".bgGreen.black + " Service criado com sucesso :)");
+      console.log("Caminho:", obj.fileName.yellow);
+      console.log("Importe o service em seu controller:");
+      console.log("app.controller('nameController', ['$scope, "+obj.name.yellow+"', function($scope, "+obj.name.yellow+") { ");
     },
     SHOW_MESSAGE_FROM_REPO: function(msg){
       console.log(msg["pt"] ? msg["pt"].bgYellow.black : msg[lang].bgYellow.black);
@@ -77,5 +99,10 @@ module.exports = {
       console.log("  Relaxe e aguarde a conclusão da instalação!  ".bgYellow.black);
       console.log("                                               ".bgYellow.black);
       console.log("");
+    },
+    CHANGE_INDEX_ADD_CONTROLLER_FAILED: function (file){
+      console.log(" Ops! ".bgRed.white + " Não foi possível importar arquivo.");
+      console.log(" Adicione no arquivo index.html o código abaixo: ");
+      console.log(' <script src="js/controllers/'+file+'"></script> ');
     }
 }

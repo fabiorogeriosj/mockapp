@@ -38,8 +38,8 @@ GLOBAL.commands = getCommands();
 
 	var showIntro = function (){
 		console.log("");
-		console.log("   _______  ".green,"           _                       ");
-		console.log("  (_______) ".green,"          | |                      ");
+		console.log("   _______  ".green,"          _                       ");
+		console.log("  (_______) ".green,"         | |                      ");
 		console.log("   _  _  _  ___   ____| |  _ _____ ____  ____  ");
 		console.log("  | ||_|| |/ _ \\ / ___) |_/ |____ |  _ \\|  _ \\ ");
 		console.log("  | |   | | |_| ( (___|  _ (/ ___ | |_| | |_| |");

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "docs": "https://github.com/fabiorogeriosj/mockapp/blob/master/README.md",
+  "docs": "https://www.npmjs.com/package/mockapp",
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
   "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.json",
   "androidSdk": {

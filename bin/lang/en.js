@@ -5,7 +5,7 @@ module.exports = {
     VERSION_INSTALED: "Version instaled",
     ERROR_EXEC_MOCKAPP: "OMG :(\nError in mockapp\n",
     WRITE_LANG_NOT_FOUND: "Message to show not found!".red,
-    START_NEW_APP: "Starting preview app...".green,
+    START_NEW_APP: "Creating new app...".green,
     START_PREVIEW_APP: "Starting preview app...".green,
     START_BUILD_APP: "Starting build app...".green,
     START_ADD_PLATFORM: "Adding platform...".green,

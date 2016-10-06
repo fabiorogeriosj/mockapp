@@ -53,12 +53,17 @@ module.exports = {
     TYPE_NOT_EXIST_ADD: " Ops! ".bgRed.white + " The type entered is not valid.",
     NAME_NOT_FOUND_ADD_CONTROLLER: " Ops! ".bgRed.white + " You must inform the controller name.",
     NAME_NOT_FOUND_ADD_SERVICE: " Ops! ".bgRed.white + " You must inform the service name.",
+    NAME_NOT_FOUND_ADD_PAGE: " Ops! ".bgRed.white + " You must inform the page name.",
     ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Could not create controller :(",
     ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Could not create service :(",
+    ADD_PAGE_FAILED: " Ops! ".bgRed.white + " Could not create a new page :(",
     CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a controller with that name.",
     SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a service with that name.",
+    PAGE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a page with that name.",
     PARAMS_INCORRECT_ADD_CONTROLLER: " Ops! ".bgRed.white + " The controller's name was reported incorrectly, eg: \nmockapp add controller userController",
     PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " The service's name was reported incorrectly, eg: \nmockapp add service userService",
+    PARAMS_INCORRECT_ADD_PAGE: " Ops! ".bgRed.white + " The page's name was reported incorrectly, eg: \nmockapp add page user",
+    ADD_PAGE_SUCCESS: " Cool! ".bgGreen.black + " Page created successfully :) ",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);

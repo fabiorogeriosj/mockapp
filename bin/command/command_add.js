@@ -6,6 +6,7 @@ var project = require('./../utils/project');
 
 var command_add_controller = require('./command_add_controller');
 var command_add_service = require('./command_add_service');
+var command_add_page = require('./command_add_page');
 
 module.exports = {
     run : function (){
@@ -20,6 +21,8 @@ module.exports = {
               command_add_controller.run();
             } else if(type == "service"){
               command_add_service.run();
+            } else if(type == "page"){
+              command_add_page.run();
             } else {
               message.console(message.getMessage("TYPE_NOT_EXIST_ADD"))
             }

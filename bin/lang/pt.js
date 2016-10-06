@@ -53,12 +53,17 @@ module.exports = {
     TYPE_NOT_EXIST_ADD: " Ops! ".bgRed.white + " O tipo informado não é valido.",
     NAME_NOT_FOUND_ADD_CONTROLLER: " Ops! ".bgRed.white + " Você deve informar o nome do controller.",
     NAME_NOT_FOUND_ADD_SERVICE: " Ops! ".bgRed.white + " Você deve informar o nome do service.",
+    NAME_NOT_FOUND_ADD_PAGE: " Ops! ".bgRed.white + " Você deve informar o nome da nova página.",
     ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Não foi possível criar controller :(",
     ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar service :(",
+    ADD_PAGE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar uma nova página :(",
     CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um controller com esse nome.",
     SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um service com esse nome.",
+    PAGE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe uma página com esse nome.",
     PARAMS_INCORRECT_ADD_CONTROLLER: " Ops! ".bgRed.white + " O nome do controller foi informado de forma incorreta, exemplos: \nmockapp add controller userController.",
     PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " O nome do service foi informado de forma incorreta, exemplos: \nmockapp add service userService.",
+    PARAMS_INCORRECT_ADD_PAGE: " Ops! ".bgRed.white + " O nome da nova página foi informado de forma incorreta, exemplos: \nmockapp add page user.",
+    ADD_PAGE_SUCCESS: " Show! ".bgGreen.black + " Página criada com sucesso :) ",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);

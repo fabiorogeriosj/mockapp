@@ -5,7 +5,7 @@ app.config(function($routeProvider) {
 			templateUrl : 'home.html',
 			controller  : 'homeController'
 		})
-
+		//Multiplo replace
     //END-MOCKAPP:ROUTERS
     $routeProvider.otherwise('/home');
 });

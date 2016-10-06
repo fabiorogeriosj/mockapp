@@ -1,6 +1,6 @@
 {
   "name": "mockapp",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Create functional prototypes for mobile application",
   "main": "./bin/mockapp",
   "scripts": {
@@ -10,7 +10,7 @@
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
   "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.json",
   "androidSdk": {
-      "win32": "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip"
+    "win32": "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip"
   },
   "repository": {
     "type": "git",

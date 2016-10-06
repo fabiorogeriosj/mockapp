@@ -61,6 +61,12 @@ mockapp add component button-login-facebook
 
 ## Tools
 
+Add new page
+
+```
+mockapp add page User
+```
+
 Add controller
 
 ```

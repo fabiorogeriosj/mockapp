@@ -1,14 +1,17 @@
 {
   "name": "mockapp",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Create functional prototypes for mobile application",
   "main": "./bin/mockapp",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "docs": "https://github.com/fabiorogeriosj/mockapp/blob/master/README.md",
+  "docs": "https://www.npmjs.com/package/mockapp",
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
   "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.json",
+  "androidSdk": {
+      "win32": "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabiorogeriosj/mockapp.git"
@@ -25,6 +28,7 @@
   },
   "homepage": "https://github.com/fabiorogeriosj/mockapp#readme",
   "dependencies": {
+    "clui": "^0.3.1",
     "colors": "^1.1.2",
     "connect": "^3.5.0",
     "inquirer": "^1.2.1",
@@ -32,6 +36,7 @@
     "minimist": "^1.2.0",
     "opener": "^1.4.2",
     "os-locale": "^1.4.0",
+    "progress": "^1.1.8",
     "request": "^2.75.0",
     "serve-static": "^1.11.1",
     "xml2js": "^0.4.17"

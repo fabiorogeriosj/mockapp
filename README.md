@@ -24,7 +24,7 @@ mockapp new "My First App"
 ```
 
 ```
-mockapp new MyFirstApp --id "com.br.firstapp" --name "My First App"
+mockapp new MyFirstApp --id "com.br.firstapp" --name "My First App --path directory_app"
 ```
 
 ## Preview app
@@ -60,6 +60,24 @@ mockapp add component button-login-facebook
 ```
 
 ## Tools
+
+Add new page
+
+```
+mockapp add page User
+```
+
+Add controller
+
+```
+mockapp add controller MyController
+```
+
+Add service
+
+```
+mockapp add service apiService
+```
 
 Config app
 

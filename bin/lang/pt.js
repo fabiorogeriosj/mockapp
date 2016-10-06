@@ -9,12 +9,17 @@ module.exports = {
     START_PREVIEW_APP: "Iniciando preview app...".green,
     START_BUILD_APP: "Iniciando build do app...".green,
     START_ADD_PLATFORM: "Adicionando plataforma...".green,
+    START_JAVA_INSTALL: "Iniciando instalação do Java JDK...".green,
+    START_ANDROID_INSTALL: "Iniciando instalação do Android SDK...".green,
     ERROR_CORDOVA: "Erro ao executar cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp delete MyFirstApp.",
-    PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " O nome do app foi informado de forma incorreta, exemplos: \nmock new MyFirstApp \nou \nmockapp new \"My First app\"",
+    PARAMS_INCORRECT_NEW_APP: " Ops! ".bgRed.white + " O nome do app foi informado de forma incorreta, exemplos: \nmockapp new MyFirstApp \nou \nmockapp new \"My First app\"",
     APP_CREATED_SUCCESS: " Show! ".bgGreen.black + " App criado com sucesso :)",
     APP_DELETED_SUCCESS: " Show! ".bgGreen.black + " App deletado com sucesso :)",
+    BUILD_SUCCESS: " Show! ".bgGreen.black + " Build concluído com sucesso :)",
+    INSTALL_JAVA_SUCCESS: " Show! ".bgGreen.black + " Java JDK instalado com sucesso :)",
+    INSTALL_ANDROID_SUCCESS: " Show! ".bgGreen.black + " Android SDK instalado com sucesso :)",
     ID_APP_INVALID: " Ops! ".bgRed.white + " O id informado não é valido, tente usar outro.",
     APP_EXISTS: " Ops! ".bgRed.white + " Um app com este nome já existe neste diretório, escolha outro nome ou delete o existente.",
     START_DELETE_APP: "Deletando aplicativo...".green,
@@ -37,6 +42,28 @@ module.exports = {
     PLATFORM_NOT_INFORMED_BUILD: " Ops! ".bgRed.white + " Você deve informar a plataforma, exemplo: mockapp build android.",
     PLATFORM_ADDED: " Show! ".bgGreen.black + " Plataforma adicionada com sucesso!",
     PLATFORM_NOT_SUPPORTED: " Ops! ".bgRed.white + " Plataforma informada não suportada, veja documentaçao para mais detalhes: mockapp docs.",
+    DOWNLOAD_ANDROID_SDK: "Baixando Android SDK para seu S.O...".green,
+    DOWNLOAD_FAILED: " Ops! ".bgRed.white + " Download failed :(\nPor favor, tente mais tarde ou faça a instalação do SDK manual, veja em: mockapp docs.",
+    DOWNLOADING: " Progresso",
+    BUIDING_APP: "Building app...",
+    INSTALLING_JAVA: "Instalando Java JDK...",
+    INSTALLING_ANDROID: "Instalando Android SDK...",
+    VERIFY_ENVIRONMENT: "Verificando dependências...".green,
+    TYPE_NOT_FOUND_ADD: " Ops! ".bgRed.white + " Você deve informar o que vai adicionar no app.",
+    TYPE_NOT_EXIST_ADD: " Ops! ".bgRed.white + " O tipo informado não é valido.",
+    NAME_NOT_FOUND_ADD_CONTROLLER: " Ops! ".bgRed.white + " Você deve informar o nome do controller.",
+    NAME_NOT_FOUND_ADD_SERVICE: " Ops! ".bgRed.white + " Você deve informar o nome do service.",
+    NAME_NOT_FOUND_ADD_PAGE: " Ops! ".bgRed.white + " Você deve informar o nome da nova página.",
+    ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Não foi possível criar controller :(",
+    ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar service :(",
+    ADD_PAGE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar uma nova página :(",
+    CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um controller com esse nome.",
+    SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um service com esse nome.",
+    PAGE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe uma página com esse nome.",
+    PARAMS_INCORRECT_ADD_CONTROLLER: " Ops! ".bgRed.white + " O nome do controller foi informado de forma incorreta, exemplos: \nmockapp add controller userController.",
+    PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " O nome do service foi informado de forma incorreta, exemplos: \nmockapp add service userService.",
+    PARAMS_INCORRECT_ADD_PAGE: " Ops! ".bgRed.white + " O nome da nova página foi informado de forma incorreta, exemplos: \nmockapp add page user.",
+    ADD_PAGE_SUCCESS: " Show! ".bgGreen.black + " Página criada com sucesso :) ",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -46,6 +73,18 @@ module.exports = {
       console.log("  npm install -g mockapp                       ".bgYellow.black);
       console.log("                                               ".bgYellow.black);
     },
+    ADD_CONTROLLER_SUCCESS: function(obj){
+      console.log(" Show! ".bgGreen.black + " Controller criado com sucesso :)");
+      console.log("Caminho:", obj.fileName.yellow);
+      console.log("Adicione o atributo abaixo em seu elemento:");
+      console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
+    },
+    ADD_SERVICE_SUCCESS: function(obj){
+      console.log(" Show! ".bgGreen.black + " Service criado com sucesso :)");
+      console.log("Caminho:", obj.fileName.yellow);
+      console.log("Importe o service em seu controller:");
+      console.log("app.controller('nameController', ['$scope, "+obj.name.yellow+"', function($scope, "+obj.name.yellow+") { ");
+    },
     SHOW_MESSAGE_FROM_REPO: function(msg){
       console.log(msg["pt"] ? msg["pt"].bgYellow.black : msg[lang].bgYellow.black);
     },
@@ -54,5 +93,21 @@ module.exports = {
       console.log("id: "+config.id);
       console.log("nome: "+config.name);
       console.log("versão: "+config.version);
+    },
+    NEED_INSTALL_ENVIRONMENT: function (){
+      console.log("");
+      console.log("                                               ".bgYellow.black);
+      console.log("  Seu ambiente não está preparado para gerar   ".bgYellow.black);
+      console.log("  o aplicativo final, mas sem pânico!          ".bgYellow.black);
+      console.log("  Deixe que o mockapp cuide disto :)           ".bgYellow.black);
+      console.log("                                               ".bgYellow.black);
+      console.log("  Relaxe e aguarde a conclusão da instalação!  ".bgYellow.black);
+      console.log("                                               ".bgYellow.black);
+      console.log("");
+    },
+    CHANGE_INDEX_ADD_CONTROLLER_FAILED: function (file){
+      console.log(" Ops! ".bgRed.white + " Não foi possível importar arquivo.");
+      console.log(" Adicione no arquivo index.html o código abaixo: ");
+      console.log(' <script src="js/controllers/'+file+'"></script> ');
     }
 }

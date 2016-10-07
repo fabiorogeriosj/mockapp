@@ -11,6 +11,7 @@ module.exports = {
     START_ADD_PLATFORM: "Adicionando plataforma...".green,
     START_JAVA_INSTALL: "Iniciando instalação do Java JDK...".green,
     START_ANDROID_INSTALL: "Iniciando instalação do Android SDK...".green,
+    START_ADD_ICONS_APP: "Adicionando pacote de ícones...".green,
     ERROR_CORDOVA: "Erro ao executar cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp delete MyFirstApp.",
@@ -20,6 +21,7 @@ module.exports = {
     BUILD_SUCCESS: " Show! ".bgGreen.black + " Build concluído com sucesso :)",
     INSTALL_JAVA_SUCCESS: " Show! ".bgGreen.black + " Java JDK instalado com sucesso :)",
     INSTALL_ANDROID_SUCCESS: " Show! ".bgGreen.black + " Android SDK instalado com sucesso :)",
+    ADD_ICONS_SUCESS: " Show! ".bgGreen.black + " Pacote de ícones adicionado com sucesso :)",
     ID_APP_INVALID: " Ops! ".bgRed.white + " O id informado não é valido, tente usar outro.",
     APP_EXISTS: " Ops! ".bgRed.white + " Um app com este nome já existe neste diretório, escolha outro nome ou delete o existente.",
     START_DELETE_APP: "Deletando aplicativo...".green,
@@ -57,13 +59,19 @@ module.exports = {
     ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Não foi possível criar controller :(",
     ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar service :(",
     ADD_PAGE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar uma nova página :(",
+    ADD_ICONS_FAILED: " Ops! ".bgRed.white + " Não foi possível adicionar o pacote de ícone :(",
     CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um controller com esse nome.",
     SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um service com esse nome.",
     PAGE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe uma página com esse nome.",
+    ICONS_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " Já existe um pacote de ícones adicionado com esse nome.",
     PARAMS_INCORRECT_ADD_CONTROLLER: " Ops! ".bgRed.white + " O nome do controller foi informado de forma incorreta, exemplos: \nmockapp add controller userController.",
     PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " O nome do service foi informado de forma incorreta, exemplos: \nmockapp add service userService.",
     PARAMS_INCORRECT_ADD_PAGE: " Ops! ".bgRed.white + " O nome da nova página foi informado de forma incorreta, exemplos: \nmockapp add page user.",
+    PARAMS_INCORRECT_ADD_ICONS: " Ops! ".bgRed.white + " A URL do pacote de ícones foi informado de forma incorreta, exemplos: \nmockapp add icons http://www.flaticon.com/packs/material-design",
     ADD_PAGE_SUCCESS: " Show! ".bgGreen.black + " Página criada com sucesso :) ",
+    ADD_ROUTE_SUCCESS: " Show! ".bgGreen.black + " Rota adicionada com sucesso :) ",
+    NAME_NOT_FOUND_ADD_ICONS: " Ops! ".bgRed.white + " Você deve informar a URL do pacote de ícones.",
+
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -75,15 +83,21 @@ module.exports = {
     },
     ADD_CONTROLLER_SUCCESS: function(obj){
       console.log(" Show! ".bgGreen.black + " Controller criado com sucesso :)");
-      console.log("Caminho:", obj.fileName.yellow);
-      console.log("Adicione o atributo abaixo em seu elemento:");
-      console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
+      if(commands.addController){
+        console.log("Caminho:", obj.fileName.yellow);
+        console.log("Adicione o atributo abaixo em seu elemento:");
+        console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
+      }
+    },
+    EXAMPLE_GOTO_PAGE: function(name){
+      console.log("\nAdicione o atributo abaixo em seu elemento:");
+      console.log("<button ", "ng-click=\"goToPage('".yellow+name.yellow+"')\"".yellow, "></button> ");
     },
     ADD_SERVICE_SUCCESS: function(obj){
       console.log(" Show! ".bgGreen.black + " Service criado com sucesso :)");
       console.log("Caminho:", obj.fileName.yellow);
       console.log("Importe o service em seu controller:");
-      console.log("app.controller('nameController', ['$scope, "+obj.name.yellow+"', function($scope, "+obj.name.yellow+") { ");
+      console.log("app.controller('nameController', ['$scope', '"+obj.name.yellow+"', function($scope, "+obj.name.yellow+") { ");
     },
     SHOW_MESSAGE_FROM_REPO: function(msg){
       console.log(msg["pt"] ? msg["pt"].bgYellow.black : msg[lang].bgYellow.black);
@@ -109,5 +123,10 @@ module.exports = {
       console.log(" Ops! ".bgRed.white + " Não foi possível importar arquivo.");
       console.log(" Adicione no arquivo index.html o código abaixo: ");
       console.log(' <script src="js/controllers/'+file+'"></script> ');
+    },
+    CHANGE_INDEX_ADD_CSS_FAILED: function (file){
+      console.log(" Ops! ".bgRed.white + " Não foi possível importar arquivo.");
+      console.log(" Adicione no arquivo index.html o código abaixo: ");
+      console.log(' <link rel="stylesheet" type="text/css" href="icons/'+file+'.css"> ');
     }
 }

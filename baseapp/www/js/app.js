@@ -1,1 +1,1 @@
-var app = angular.module('mockapp', ['ngRoute']);
+var app = angular.module('mockapp', ['ui.router']);

@@ -5,25 +5,27 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="icons/material_design.css">
+        <link rel="stylesheet" type="text/css" href="icons/materialdesign.css"></link>
+        <!--END-MOCKAPP:CSS-->
         <link rel="stylesheet" type="text/css" href="css/font.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>TITLE</title>
         <script src="cordova.js"></script>
         <script src="lib/angular.min.js"></script>
-        <script src="lib/angular-route.min.js"></script>
+        <script src="lib/angular-ui-router.min.js"></script>
         <script src="mockapp.json"></script>
         <script src="js/app.js"></script>
         <script src="lib/mockapp.js"></script>
         <script src="js/config.js"></script>
 
-        <script src="js/controllers/userController.js"></script>
+        <script src="js/controllers/rootController.js"></script>
+        <script src="js/controllers/homeController.js"></script>
         <!--END-MOCKAPP:CONTROLLERS-->
         <!--END-MOCKAPP:SERVICES-->
     </head>
-    <body>
+    <body ng-controller="rootController">
 
-      <ng-view></ng-view>
+      <ui-view></ui-view>
 
     </body>
 </html>

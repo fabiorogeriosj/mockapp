@@ -18,7 +18,7 @@ module.exports = {
           var name = url.split('/')[url.split('/').length-1];
           name = name.replace(/[^A-Z0-9]/ig, "");
           var fileName = "./www/icons/"+name;
-          if(!util.directoryExists(fileName+".css")){
+          if(!util.fileExists(fileName+".css")){
             request(url, function (error, response, body) {
               if (!error && response.statusCode == 200) {
                 var link = self.getLinkDownload(body);
@@ -27,7 +27,11 @@ module.exports = {
                     res.data.name = name;
                     self.addIcons(res.data, function (res){
                       if(res.isValid){
-                        message.console(message.getMessage("ADD_ICONS_SUCESS"))
+                        self.generateIconsView(name, function(res){
+                          if(res.isValid){
+                            message.console(message.getMessage("ADD_ICONS_SUCESS"))
+                          }
+                        });
                       }
                     })
                   }
@@ -132,5 +136,53 @@ module.exports = {
           });
         }
       })
+    },
+    generateIconsView : function (name, callback){
+      var result = {isValid:false, msg:""};
+      var filecss = "./www/icons/"+name+".css";
+      var fileicons = "./prebuild/icons.html";
+      fs.readFile(filecss, 'utf8', function (err,css) {
+        if (err) {
+          message.console(message.getMessage("ADD_ICONS_FAILED"));
+          if(commands.log){
+              console.log(err);
+          }
+          callback(result);
+        } else {
+          var filesplit = css.split(".linearratingandvalidationelements-");
+          fs.readFile(fileicons, 'utf8', function (err,icons) {
+            if (err) {
+              message.console(message.getMessage("ADD_ICONS_FAILED"));
+              if(commands.log){
+                  console.log(err);
+              }
+              callback(result);
+            } else {
+              var iconstag = "";
+              for(i in filesplit){
+                if(filesplit[i].indexOf("@font-face") < 0 && filesplit[i].indexOf(":before") >= 0){
+                  //console.log("AAAAAAA>",filesplit[i])
+                  var classTag = filesplit[i].split(":before")[0];
+                  iconstag += "<div class='icon-view'><i class='"+name+"-"+classTag+"'></i></div>\n";
+                }
+              }
+              icons = icons.replace("</body>", iconstag+"</body>");
+              icons = icons.replace("<!--END-MOCKAPP:CSS -->", "<link rel=\"stylesheet\" href=\"../www/icons/"+name+".css\">"+"\n<!--END-MOCKAPP:CSS -->");
+              fs.writeFile(fileicons, icons, function(err) {
+                if (err) {
+                  message.console(message.getMessage("ADD_ICONS_FAILED"))
+                  if(commands.log){
+                      console.log(err);
+                  }
+                  callback(result);
+                } else {
+                  result.isValid=true;
+                  callback(result);
+                }
+              });
+            }
+          });
+        }
+      });
     }
 }

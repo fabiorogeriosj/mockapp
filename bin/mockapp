@@ -21,6 +21,7 @@ var command_docs = require('./command/command_docs');
 var command_bugs = require('./command/command_bugs');
 var command_config = require('./command/command_config');
 var command_add = require('./command/command_add');
+var command_icons = require('./command/command_icons');
 
 
 var getCommands = function (){
@@ -88,6 +89,8 @@ GLOBAL.commands = getCommands();
 				command_config.run()
 			} else if(commands.add){
 				command_add.run()
+			} else if(commands.icons){
+				command_icons.run()
 			} else {
 				message.console(message.getMessage("COMMAND_NOT_FOUND"))
 			}

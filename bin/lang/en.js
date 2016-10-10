@@ -21,7 +21,7 @@ module.exports = {
     BUILD_SUCCESS: " Cool! ".bgGreen.black + " Build successfully app :)",
     INSTALL_JAVA_SUCCESS: " Cool! ".bgGreen.black + " Java JDK successfully installed :)",
     INSTALL_ANDROID_SUCCESS: " Cool! ".bgGreen.black + " Android SDK successfully installed :)",
-    ADD_ICONS_SUCESS: " Cool! ".bgGreen.black + " Pack icons successfully added :)",
+    ADD_ICONS_SUCESS: " Cool! ".bgGreen.black + " Pack icons successfully added :)\nRun: mockapp icons to see your icons!",
     ID_APP_INVALID: " Ops! ".bgRed.white + " Informed id is not available, try another.",
     APP_EXISTS: " Ops! ".bgRed.white + " An app with this name already exists in this directory, choose another name or delete the existing one.",
     START_DELETE_APP: "Deleting application...".green,

@@ -118,6 +118,7 @@ module.exports = {
         } else {
           var templateNew = '@font-face {font-family: "'+pack.name+'";src: url("./'+pack.name+'.woff") format("woff");font-weight: normal;font-style: normal;}\n';
           templateNew += '[class^="flaticon-"]:before' + template.split('[class^="flaticon-"]:before')[1];
+          templateNew = template.replace("margin-left: 20px;","");
           templateNew =  templateNew.split('.flaticon-').join('.'+pack.name+'-');
           templateNew =  templateNew.split('flaticon').join(pack.name);
           templateNew =  templateNew.split('Flaticon').join(pack.name);
@@ -149,7 +150,7 @@ module.exports = {
           }
           callback(result);
         } else {
-          var filesplit = css.split(".linearratingandvalidationelements-");
+          var filesplit = css.split("."+name+"-");
           fs.readFile(fileicons, 'utf8', function (err,icons) {
             if (err) {
               message.console(message.getMessage("ADD_ICONS_FAILED"));

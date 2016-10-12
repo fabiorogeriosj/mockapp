@@ -59,6 +59,10 @@ GLOBAL.commands = getCommands();
 		request(_PACKAGEJSONREPO, function (error, response, body) {
 		  if (!error && response.statusCode == 200) {
 		    var packageJsonRepo = JSON.parse(body);
+				if(commands.log){
+					console.log("packageJsonRepo: ", packageJsonRepo.version);
+					console.log("packageJson: ", packageJson.version);
+				}
 				if(packageJsonRepo.version > packageJson.version){
 					message.writeMessage("THERE_IS_NEW_VERSION", packageJsonRepo);
 				}

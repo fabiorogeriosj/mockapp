@@ -11,29 +11,32 @@ module.exports = {
     var bar = null;
     var req = request(url);
     var fileName = url.split("/")[url.split("/").length-1];
+    try {
+      req.on('data', function (chunk) {
+        bar = bar || new ProgressBar(message.getMessage("DOWNLOADING") + ' [:bar] :percent :etas', {
+          complete: '=',
+          incomplete: ' ',
+          width: 20,
+          total: parseInt(req.response.headers['content-length'])
+        });
 
-    req.on('data', function (chunk) {
-      bar = bar || new ProgressBar(message.getMessage("DOWNLOADING") + ' [:bar] :percent :etas', {
-        complete: '=',
-        incomplete: ' ',
-        width: 20,
-        total: parseInt(req.response.headers['content-length'])
-      });
-
-      bar.tick(chunk.length);
-    })
-    .on('error', function (err) {
-        message.console(message.getMessage("DOWNLOAD_FAILED"));
-        result.isValid=false;
+        bar.tick(chunk.length);
+      })
+      .on('error', function (err) {
+          message.console(message.getMessage("DOWNLOAD_FAILED"));
+          result.isValid=false;
+          callback(result);
+      })
+      .pipe(fs.createWriteStream(__dirname+"/" + fileName))
+      .on('close', function (err) {
+        bar.tick(bar.total - bar.curr);
+        result.isValid=true;
+        result.data = { fileName : fileName, path: __dirname+"\\" + fileName };
         callback(result);
-    })
-    .pipe(fs.createWriteStream(__dirname+"/" + fileName))
-    .on('close', function (err) {
-      bar.tick(bar.total - bar.curr);
-      result.isValid=true;
-      result.data = { fileName : fileName, path: __dirname+"\\" + fileName };
+      })
+    } catch (e) {
       callback(result);
-    })
+    }
   },
 
   androidSdkMacOsX : function(callback){

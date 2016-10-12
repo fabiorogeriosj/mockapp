@@ -161,7 +161,7 @@ module.exports = {
     var i = files.length;
     var next = function(res){
       i--;
-      if(res.isValid){
+      if(!res.isValid){
         callback(result);
         if(commands.log){
           console.log(res);

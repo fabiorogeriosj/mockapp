@@ -119,6 +119,12 @@ module.exports = {
         }
       });
 
+      cordovaProcess.stderr.on('data', function(data) {
+        if(data.trim().toString().indexOf("Path already exists and is not empty") >= 0){
+          result.msg = message.tryConvertErrorCordova(data.trim().toString());
+        }
+      });
+
       cordovaProcess.on('close', function(error) {
         if(!error){
           result.isValid=true;

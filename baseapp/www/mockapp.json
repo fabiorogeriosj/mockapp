@@ -1,5 +1,0 @@
-mockappJson = {
-  components: [
-    { name : "header", path: "components/header.html" }
-  ]
-}

@@ -1,6 +1,6 @@
 var fs = require('fs');
 var request = require('request');
-var unzip = require('unzip');
+var AdmZip = require('adm-zip');
 var message = require('./../utils/message');
 var cordova = require('./../utils/cordova');
 var util = require('./../utils/util');
@@ -63,19 +63,12 @@ module.exports = {
       pathSplit[pathSplit.length-1] = pack.name;
       pack.pathTo = pathSplit.join("\\");
 
-      var extract = fs.createReadStream(pack.path).pipe(unzip.Extract({ path: pack.pathTo }));
-      var had_error = false;
-      extract.on('error', function(err){
-        had_error = true;
-      });
-      extract.on('close', function(){
-        if (had_error){
-          message.console(message.getMessage("ADD_ICONS_FAILED"))
-          callback(result);
-        } else {
+      var zip = new AdmZip(pack.path);
+      try {
+          zip.extractAllTo(pack.pathTo, true);
           var directory = util.getDirectories(pack.pathTo)[0];
           pack.pathDirectory = pack.pathTo + "\\" + directory;
-          self.renameAndMoveWoff(pack, function(res){
+          self.renameAndMoveTtf(pack, function(res){
             if(res.isValid){
               self.replaceAndAddCss(pack, function(res){
                 callback(res);
@@ -83,13 +76,15 @@ module.exports = {
               });
             }
           });
-        }
-      })
+      } catch (e) {
+        message.console(message.getMessage("ADD_ICONS_FAILED"))
+        callback(result);
+      }
     },
-    renameAndMoveWoff: function(pack, callback){
+    renameAndMoveTtf: function(pack, callback){
       var result = {isValid:false, msg:""};
-      var font = pack.pathDirectory+"\\font\\Flaticon.woff";
-      var fontNew = "./www/icons/"+pack.name+".woff";
+      var font = pack.pathDirectory+"\\font\\Flaticon.ttf";
+      var fontNew = "./www/icons/"+pack.name+".ttf";
       util.createIfNotExistDirectory("./www/icons/");
       fs.rename(font, fontNew, function(err) {
           if (err) {
@@ -116,9 +111,15 @@ module.exports = {
           }
           callback(result);
         } else {
-          var templateNew = '@font-face {font-family: "'+pack.name+'";src: url("./'+pack.name+'.woff") format("woff");font-weight: normal;font-style: normal;}\n';
-          templateNew += '[class^="flaticon-"]:before' + template.split('[class^="flaticon-"]:before')[1];
-          templateNew = template.replace("margin-left: 20px;","");
+          var templateNew = '@font-face {font-family: "'+pack.name+'";src: url("./'+pack.name+'.ttf") format("truetype");font-weight: normal;font-style: normal;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}\n';
+          templateNew += '[class^="'+pack.name+'-"]:before, [class*=" '+pack.name+'-"]:before,[class^="'+pack.name+'-"]:after, [class*=" '+pack.name+'-"]:after {   font-family: '+pack.name+';font-style: normal;}\n';
+          if(template.indexOf("@font-face") >= 0){
+              searchClear = template.split(".flaticon-")[0];
+              if(searchClear && searchClear.length){
+                template = template.replace(searchClear, "");
+              }
+          }
+          templateNew += template;
           templateNew =  templateNew.split('.flaticon-').join('.'+pack.name+'-');
           templateNew =  templateNew.split('flaticon').join(pack.name);
           templateNew =  templateNew.split('Flaticon').join(pack.name);

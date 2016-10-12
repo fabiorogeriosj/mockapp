@@ -11,6 +11,7 @@ module.exports = {
     START_ADD_PLATFORM: "Adding platform...".green,
     START_JAVA_INSTALL: "Starting install Java JDK...".green,
     START_ANDROID_INSTALL: "Starting install Android SDK...".green,
+    START_ADD_ICONS_APP: "Adding icons pack...".green,
     ERROR_CORDOVA: "Error exec cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " You must enter the name of the app, eg mockapp delete MyFirstApp.",
@@ -20,6 +21,7 @@ module.exports = {
     BUILD_SUCCESS: " Cool! ".bgGreen.black + " Build successfully app :)",
     INSTALL_JAVA_SUCCESS: " Cool! ".bgGreen.black + " Java JDK successfully installed :)",
     INSTALL_ANDROID_SUCCESS: " Cool! ".bgGreen.black + " Android SDK successfully installed :)",
+    ADD_ICONS_SUCESS: " Cool! ".bgGreen.black + " Pack icons successfully added :)\nRun: mockapp icons to see your icons!",
     ID_APP_INVALID: " Ops! ".bgRed.white + " Informed id is not available, try another.",
     APP_EXISTS: " Ops! ".bgRed.white + " An app with this name already exists in this directory, choose another name or delete the existing one.",
     START_DELETE_APP: "Deleting application...".green,
@@ -57,13 +59,18 @@ module.exports = {
     ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Could not create controller :(",
     ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Could not create service :(",
     ADD_PAGE_FAILED: " Ops! ".bgRed.white + " Could not create a new page :(",
+    ADD_ICONS_FAILED: " Ops! ".bgRed.white + " Unable to add the icon pack :(",
     CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a controller with that name.",
     SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a service with that name.",
     PAGE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a page with that name.",
+    ICONS_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already an icon pack added to the name.",
     PARAMS_INCORRECT_ADD_CONTROLLER: " Ops! ".bgRed.white + " The controller's name was reported incorrectly, eg: \nmockapp add controller userController",
     PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " The service's name was reported incorrectly, eg: \nmockapp add service userService",
     PARAMS_INCORRECT_ADD_PAGE: " Ops! ".bgRed.white + " The page's name was reported incorrectly, eg: \nmockapp add page user",
+    PARAMS_INCORRECT_ADD_ICONS: " Ops! ".bgRed.white + " The URL of the icon pack was informed incorrectly, eg: \nmockapp add icons http://www.flaticon.com/packs/material-design",
     ADD_PAGE_SUCCESS: " Cool! ".bgGreen.black + " Page created successfully :) ",
+    ADD_ROUTE_SUCCESS: " Cool! ".bgGreen.black + " Route added successfully :) ",
+    NAME_NOT_FOUND_ADD_ICONS: " Ops! ".bgRed.white + " You must enter the URL of the icon pack.",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -76,14 +83,20 @@ module.exports = {
     ADD_CONTROLLER_SUCCESS: function(obj){
       console.log(" Cool! ".bgGreen.black + " Controller successfully created :)");
       console.log("Path:", obj.fileName.yellow);
+      if(!obj.notShowMessage){
+        console.log("Add the attribute down in his element:");
+        console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
+      }
+    },
+    EXAMPLE_GOTO_PAGE: function(name){
       console.log("Add the attribute down in his element:");
-      console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
+      console.log("<button ", "ng-click=\"goToPage(".yellow+obj.name.yellow+")\"".yellow, "></button> ");
     },
     ADD_SERVICE_SUCCESS: function(obj){
       console.log(" Cool! ".bgGreen.black + " Service successfully created :)");
       console.log("Path:", obj.fileName.yellow);
       console.log("Import the service in your controller:");
-      console.log("app.controller('nameController', ['$scope, "+obj.name.yellow+"', function($scope, "+obj.name.yellow+") { ");
+      console.log("app.controller('nameController', ['$scope,', '"+obj.name.yellow+"', function($scope, "+obj.name.yellow+") { ");
     },
     SHOW_MESSAGE_FROM_REPO: function(msg){
       console.log(msg["en"] ? msg["en"].bgYellow.black : msg[lang].bgYellow.black);
@@ -109,5 +122,10 @@ module.exports = {
       console.log(" Ops! ".bgRed.white + " Unable to import file.");
       console.log(" Add the index.html file the code below: ");
       console.log(' <script src="js/controllers/'+file+'"></script> ');
+    },
+    CHANGE_INDEX_ADD_CSS_FAILED: function (file){
+      console.log(" Ops! ".bgRed.white + " Unable to import file.");
+      console.log(" Add the index.html file the code below: ");
+      console.log(' <link rel="stylesheet" type="text/css" href="icons/'+file+'.css"> ');
     }
 }

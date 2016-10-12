@@ -31,7 +31,7 @@ module.exports = {
     .on('close', function (err) {
       bar.tick(bar.total - bar.curr);
       result.isValid=true;
-      result.fileName = fileName;
+      result.data = { fileName : fileName, path: __dirname+"\\" + fileName };
       callback(result);
     })
   },

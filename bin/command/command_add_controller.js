@@ -13,13 +13,14 @@ module.exports = {
         if(!name){
             message.console(message.getMessage("NAME_NOT_FOUND_ADD_CONTROLLER"))
         } else {
+          commands.addController = true;
           self.addController(name, function (res){})
         }
       } else {
         message.console(message.getMessage("PARAMS_INCORRECT_ADD_CONTROLLER"))
       }
     },
-    addController: function (name, callback){
+    addController: function (name, callback, notShowMessage){
       var result = {isValid:false, msg:""};
       var fileName = "./www/js/controllers/"+name+".js";
       if(!util.fileExists(fileName)){
@@ -47,7 +48,7 @@ module.exports = {
                   }
                   callback(result);
                 } else {
-                  message.writeMessage("ADD_CONTROLLER_SUCCESS", { name: name, fileName: fileName});
+                  message.writeMessage("ADD_CONTROLLER_SUCCESS", { name: name, fileName: fileName, notShowMessage: notShowMessage});
                   callback(result);
                   util.addTagControllerIndex(name + ".js", function (res){});
                 }

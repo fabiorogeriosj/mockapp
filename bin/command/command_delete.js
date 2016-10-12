@@ -18,27 +18,14 @@ module.exports = {
               }];
               inquirer.prompt(questions).then(function (answers) {
                 if(answers.delete  === message.getMessage("ANSWER_YES")){
-                  try {
-                    var deleteRecursive = function (f){
-                      fs.readdirSync(f).forEach(function(file,index){
-                        var curPath = f + "/" + file;
-                        if(fs.lstatSync(curPath).isDirectory()) { // recurse
-                          deleteRecursive(curPath);
-                        } else { // delete file
-                          fs.unlinkSync(curPath);
-                        }
-                      });
-                      fs.rmdirSync(f);
+                  util.deleteRecursive(path, function(res){
+                    if(res.isValid){
+                      message.console(message.getMessage("APP_DELETED_SUCCESS"));
+                      message.checkMessageRepo();
+                    } else {
+                      message.console(message.getMessage("NOT_DELETED_APP"))
                     }
-                    deleteRecursive(path);
-                    message.console(message.getMessage("APP_DELETED_SUCCESS"));
-                    message.checkMessageRepo();
-                  } catch (e) {
-                    message.console(message.getMessage("NOT_DELETED_APP"))
-                    if(commands.log){
-                        message.console(e)
-                    }
-                  }
+                  });
                 }
               });
           } else {

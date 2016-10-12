@@ -16,7 +16,11 @@ module.exports = {
         } else {
           self.addPage(name, function (res){
             command_add_controller.addController(name+"Controller", function(res){
-              self.addRoute(name, function (res){});
+              self.addRoute(name, function (res){
+                if(res.isValid){
+                  message.writeMessage("EXAMPLE_GOTO_PAGE", name);
+                }
+              });
             });
           })
         }
@@ -34,7 +38,7 @@ module.exports = {
           }
           callback(result);
         } else {
-          template = template.replace("[NAME_PAGE]", name);
+          template = template.split('[NAME_PAGE]').join(name);
           var confiFilePath = './www/js/config.js';
           fs.readFile(confiFilePath, 'utf8', function (err,configFile) {
             if (err) {
@@ -53,7 +57,7 @@ module.exports = {
                   }
                   callback(result);
                 } else {
-                  message.console(message.getMessage("ADD_PAGE_SUCCESS"));
+                  message.console(message.getMessage("ADD_ROUTE_SUCCESS"));
                   result.isValid=true;
                   callback(result);
                 }
@@ -75,6 +79,7 @@ module.exports = {
             }
             callback(result);
           } else {
+            template = template.replace("[NAME_PAGE]", name);
             fs.writeFile(pageHtml, template, function(err) {
               if (err) {
                 message.console(message.getMessage("ADD_PAGE_FAILED"))

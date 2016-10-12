@@ -1,11 +1,19 @@
-app.config(function($routeProvider) {
-	$routeProvider
+app.config(function($stateProvider, $urlRouterProvider) {
 
-   .when('/home', {
+	$stateProvider
+
+	 .state('home', {
+		  url: '/home',
 			templateUrl : 'home.html',
 			controller  : 'homeController'
 		})
-		//Multiplo replace
+
+    .state('contatos', {
+ 		  url: '/contatos',
+ 			templateUrl : 'contatos.html',
+ 			controller  : 'contatosController'
+ 		})
+
     //END-MOCKAPP:ROUTERS
-    $routeProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/home');
 });

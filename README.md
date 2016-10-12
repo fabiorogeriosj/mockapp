@@ -18,11 +18,17 @@ npm install -g cordova mockapp
 ```
 mockapp new MyFirstApp
 ```
-
+or
 ```
 mockapp new "My First App"
 ```
 
+Options:
+- `--id "br.com.fistapp"`: Set id app.
+- `--name "My Fist App "`: Set name app.
+- `--path directory_app`: Set directory app.
+
+example:
 ```
 mockapp new MyFirstApp --id "com.br.firstapp" --name "My First App --path directory_app"
 ```
@@ -32,6 +38,9 @@ mockapp new MyFirstApp --id "com.br.firstapp" --name "My First App --path direct
 ```
 mockapp preview
 ```
+
+Options:
+- `--nobrowser`: No open default browser after run preview.
 
 ## Build app
 

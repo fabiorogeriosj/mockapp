@@ -30,15 +30,13 @@
   "dependencies": {
     "clui": "^0.3.1",
     "colors": "^1.1.2",
-    "connect": "^3.5.0",
     "inquirer": "^1.2.1",
-    "livereload": "^0.5.0",
+    "live-server": "^1.1.0",
     "minimist": "^1.2.0",
     "opener": "^1.4.2",
     "os-locale": "^1.4.0",
     "progress": "^1.1.8",
     "request": "^2.75.0",
-    "serve-static": "^1.11.1",
     "unzip": "^0.1.11",
     "xml2js": "^0.4.17"
   },

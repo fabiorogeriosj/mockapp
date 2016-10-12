@@ -46,10 +46,13 @@ module.exports = {
     build: function (platform){
       message.console(message.getMessage("START_BUILD_APP"));
       var spinner = message.startSpinner(message.getMessage("BUIDING_APP"));
-      setTimeout(function (){
-        spinner.stop();
-        message.console(message.getMessage("BUILD_SUCCESS"));
-      }, 3000);
-
+      var exec = 'cordova build '+platform;
+      cordova.exec(exec, function (res){
+        if(res.isValid){
+          spinner.stop();
+          message.console(message.getMessage("BUILD_SUCCESS"));
+          message.console(res.msg);
+        }
+      });
     }
 }

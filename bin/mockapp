@@ -16,6 +16,7 @@ var _PACKAGEJSONREPO = packageJson.packageJsonRepo;
 var command_new = require('./command/command_new');
 var command_preview = require('./command/command_preview');
 var command_build = require('./command/command_build');
+var command_run = require('./command/command_run');
 var command_delete = require('./command/command_delete');
 var command_docs = require('./command/command_docs');
 var command_bugs = require('./command/command_bugs');
@@ -79,6 +80,8 @@ GLOBAL.commands = getCommands();
 				command_preview.run()
 			} else if(commands.build){
 				command_build.run()
+			} else if(commands.run){
+				command_run.run()
 			} else if(commands.delete){
 				command_delete.run()
 			} else if(commands.docs){

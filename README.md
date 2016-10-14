@@ -2,7 +2,7 @@
 
 Create functional prototypes for mobile applications
 
-[![Build Status](https://travis-ci.org/fabiorogeriosj/mockapp.svg?branch=master)](https://travis-ci.org/fabiorogeriosj/mockapp)
+[![Build Status](https://travis-ci.org/fabiorogeriosj/mockapp.svg?branch=master)](https://travis-ci.org/fabiorogeriosj/mockapp) [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 
 
 ## Install
@@ -118,3 +118,8 @@ Remove app
 ```
 mockapp delete MyFirstApp
 ```
+
+
+[downloads-image]: https://img.shields.io/npm/dm/mockapp.svg
+[npm-url]: https://www.npmjs.com/package/mockapp
+[npm-image]: https://img.shields.io/npm/v/mockapp.svg

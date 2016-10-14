@@ -13,7 +13,7 @@ var OPTIONS = { cwd : NAME_APP }
 describe('#add pack icons in app', function() {
   var captured_stdout;
   before(function (done) {
-      var addIconCommand = spawn('node', ['../bin/mockapp','add','icons',PACK_ICO_TEST,'--lang','en'], OPTIONS);
+      var addIconCommand = spawn('node', ['../bin/mockapp','add','icons',PACK_ICO_TEST,'--lang','en','--log'], OPTIONS);
       addIconCommand.stdout.on('data', function (data) {
         captured_stdout = data.toString();
       });
@@ -27,7 +27,6 @@ describe('#add pack icons in app', function() {
       });
   });
   it('should show message about command exec', function() {
-      console.log(captured_stdout)
       captured_stdout.should.to.contain('Pack icons successfully added :)');
   });
 

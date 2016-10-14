@@ -2,6 +2,8 @@
 
 Create functional prototypes for mobile applications
 
+[![Build Status](https://travis-ci.org/fabiorogeriosj/mockapp.svg?branch=master)](https://travis-ci.org/fabiorogeriosj/mockapp)
+
 
 ## Install
 

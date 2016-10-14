@@ -4,7 +4,7 @@
   "description": "Create functional prototypes for mobile application",
   "main": "./bin/mockapp",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --timeout 15000 --reporter spec"
+    "test": "./node_modules/.bin/mocha --timeout 120000 --reporter spec"
   },
   "docs": "https://www.npmjs.com/package/mockapp",
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",

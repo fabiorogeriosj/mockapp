@@ -4,7 +4,7 @@ var expect = chai.expect;
 var fs = require('fs');
 var exec = require('child_process').exec;
 
-var NAME_APP = "appToTestNpm";
+require('./test_command_new');
 
 describe('#delete app', function() {
   var captured_stdout;

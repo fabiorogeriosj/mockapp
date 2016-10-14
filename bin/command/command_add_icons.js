@@ -22,7 +22,7 @@ module.exports = {
             request(url, function (error, response, body) {
               if (!error && response.statusCode == 200) {
                 var link = self.getLinkDownload(body);
-                download.download(link, function (res){
+                download.get(link, function (res){
                   if(res.isValid){
                     res.data.name = name;
                     self.addIcons(res.data, function (res){

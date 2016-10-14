@@ -27,6 +27,7 @@ describe('#add pack icons in app', function() {
       });
   });
   it('should show message about command exec', function() {
+      console.log(captured_stdout)
       captured_stdout.should.to.contain('Pack icons successfully added :)');
   });
 

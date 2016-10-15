@@ -8,11 +8,6 @@ branches:
   only:
   - master
 
- deploy:
-   api_key: "9a76b8c8-bd5f-48fc-96e9-9510f8939007"
-   email: fabio.rogerio.sj@gmail.com
-   provider: npm
-
 notifications:
   email: false
 

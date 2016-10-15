@@ -3,6 +3,10 @@ node_js:
   - "4"
   - "6"
 
+os:
+  - linux
+  - osx
+  
 branches:
   only:
   - master

@@ -2,7 +2,8 @@
 
 Create functional prototypes for mobile applications
 
-[![Build Status](https://travis-ci.org/fabiorogeriosj/mockapp.svg?branch=master)](https://travis-ci.org/fabiorogeriosj/mockapp) [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
+[![Build linux](https://travis-ci.org/fabiorogeriosj/mockapp.svg?branch=master)](https://travis-ci.org/fabiorogeriosj/mockapp) [![Build windows](https://ci.appveyor.com/api/projects/status/9n0lv3n34yj0ea5j?svg=true)](https://ci.appveyor.com/project/fabiorogeriosj/mockapp)
+ [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 
 
 ## Install

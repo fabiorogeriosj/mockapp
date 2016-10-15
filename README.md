@@ -2,8 +2,9 @@
 
 Create functional prototypes for mobile applications
 
-[![Build linux](https://travis-ci.org/fabiorogeriosj/mockapp.svg?branch=master)](https://travis-ci.org/fabiorogeriosj/mockapp) [![Build windows](https://ci.appveyor.com/api/projects/status/9n0lv3n34yj0ea5j?svg=true)](https://ci.appveyor.com/project/fabiorogeriosj/mockapp)
- [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
+  [![Linux Build][travis-image]][travis-url]
+  [![Windows Build][appveyor-image]][appveyor-url]
+  [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 
 
 ## Install
@@ -124,3 +125,7 @@ mockapp delete MyFirstApp
 [downloads-image]: https://img.shields.io/npm/dm/mockapp.svg
 [npm-url]: https://www.npmjs.com/package/mockapp
 [npm-image]: https://img.shields.io/npm/v/mockapp.svg
+[travis-image]: https://img.shields.io/travis/fabiorogeriosj/mockapp/master.svg?label=linux
+[travis-url]: https://travis-ci.org/fabiorogeriosj/mockapp
+[appveyor-image]: https://img.shields.io/appveyor/ci/fabiorogeriosj/mockapp/master.svg?label=windows
+[appveyor-url]: https://ci.appveyor.com/project/fabiorogeriosj/mockapp

@@ -11,4 +11,7 @@ install:
 
 build: off
 
+test_script:
+  - npm test
+
 version: "{build}"

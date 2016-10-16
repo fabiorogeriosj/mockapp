@@ -36,9 +36,10 @@ module.exports = {
               if(res.isValid){
                 message.console(message.getMessage("START_IMPORT_BASEAPP"));
                 var link = packageJson.baseapp;
-                download.download(link, function (res){
+                download.get(link, function (res){
                   if(res.isValid){
-                    var zip = new AdmZip(res.data.path);
+                    var pathFileDown = res.data.path;
+                    var zip = new AdmZip(pathFileDown);
                     try {
                       zip.extractAllTo("./"+name+"/", true);
                       fs.rename('./'+name+'/mockapp-baseapp-master/prebuild', './'+name+'/prebuild', function(err, data){
@@ -52,7 +53,7 @@ module.exports = {
                             if(res.isValid){
                               fs.rename('./'+name+'/mockapp-baseapp-master/www', './'+name+'/www', function(err, data){
                                 if(!err){
-                                  util.deleteFiles(['./'+name+'/mockapp-baseapp-master'], function(res){});
+                                  util.deleteFiles(['./'+name+'/mockapp-baseapp-master', pathFileDown], function(res){});
                                   message.console(message.getMessage("APP_CREATED_SUCCESS"));
                                   message.checkMessageRepo();
                                 } else {

@@ -4,7 +4,7 @@
   "description": "Create functional prototypes for mobile application",
   "main": "./bin/mockapp",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --timeout 120000 --reporter spec"
   },
   "docs": "https://www.npmjs.com/package/mockapp",
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
@@ -44,5 +44,9 @@
   "bin": {
     "mockapp": "./bin/mockapp"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "should": "^11.1.1"
+  }
 }

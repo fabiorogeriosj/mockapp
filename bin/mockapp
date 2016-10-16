@@ -2,6 +2,7 @@
 
 var colors = require('colors');
 var fs = require('fs');
+var os = require('os');
 var argv = require('minimist')(process.argv.slice(2));
 var request = require('request');
 var osLocale = require('os-locale');
@@ -9,6 +10,12 @@ var message = require('./utils/message');
 var config_lang = require('./lang/config');
 
 GLOBAL.packageJson = require('./../package.json');
+GLOBAL.PATH_ICONS = "./www/icons/";
+GLOBAL.PREBUILD_FILE = "./prebuild/icons.html";
+// if(os.platform() != "win32"){
+// 	GLOBAL.PATH_ICONS = ".\\www\\icons\\";
+// 	GLOBAL.PREBUILD_FILE = ".\\prebuild\\icons.html";
+// }
 
 var _PACKAGEJSONREPO = packageJson.packageJsonRepo;
 

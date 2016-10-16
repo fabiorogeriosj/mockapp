@@ -17,12 +17,12 @@ module.exports = {
           message.console(message.getMessage("START_ADD_ICONS_APP"))
           var name = url.split('/')[url.split('/').length-1];
           name = name.replace(/[^A-Z0-9]/ig, "");
-          var fileName = "./www/icons/"+name;
+          var fileName = PATH_ICONS+name;
           if(!util.fileExists(fileName+".css")){
             request(url, function (error, response, body) {
               if (!error && response.statusCode == 200) {
                 var link = self.getLinkDownload(body);
-                download.download(link, function (res){
+                download.get(link, function (res){
                   if(res.isValid){
                     res.data.name = name;
                     self.addIcons(res.data, function (res){
@@ -59,15 +59,15 @@ module.exports = {
       var result = {isValid:false, msg:""};
       var pathFrom = pack.path;
       var pathTo = pathFrom;
-      var pathSplit = pathTo.split("\\");
+      var pathSplit = pathTo.split("/");
       pathSplit[pathSplit.length-1] = pack.name;
-      pack.pathTo = pathSplit.join("\\");
+      pack.pathTo = pathSplit.join("/");
 
       var zip = new AdmZip(pack.path);
       try {
           zip.extractAllTo(pack.pathTo, true);
           var directory = util.getDirectories(pack.pathTo)[0];
-          pack.pathDirectory = pack.pathTo + "\\" + directory;
+          pack.pathDirectory = pack.pathTo + "/" + directory;
           self.renameAndMoveTtf(pack, function(res){
             if(res.isValid){
               self.replaceAndAddCss(pack, function(res){
@@ -83,9 +83,9 @@ module.exports = {
     },
     renameAndMoveTtf: function(pack, callback){
       var result = {isValid:false, msg:""};
-      var font = pack.pathDirectory+"\\font\\Flaticon.ttf";
-      var fontNew = "./www/icons/"+pack.name+".ttf";
-      util.createIfNotExistDirectory("./www/icons/");
+      var font = pack.pathDirectory+"/font/Flaticon.ttf";
+      var fontNew = PATH_ICONS+pack.name+".ttf";
+      util.createIfNotExistDirectory(PATH_ICONS);
       fs.rename(font, fontNew, function(err) {
           if (err) {
             message.console(message.getMessage("ADD_ICONS_FAILED"))
@@ -101,8 +101,8 @@ module.exports = {
     },
     replaceAndAddCss: function(pack, callback){
       var result = {isValid:false, msg:""};
-      var css = pack.pathDirectory+"\\font\\flaticon.css";
-      var cssNew = "./www/icons/"+pack.name+".css";
+      var css = pack.pathDirectory+"/font/flaticon.css";
+      var cssNew = PATH_ICONS+pack.name+".css";
       fs.readFile(css, 'utf8', function (err,template) {
         if (err) {
           message.console(message.getMessage("ADD_ICONS_FAILED"));
@@ -141,8 +141,8 @@ module.exports = {
     },
     generateIconsView : function (name, callback){
       var result = {isValid:false, msg:""};
-      var filecss = "./www/icons/"+name+".css";
-      var fileicons = "./prebuild/icons.html";
+      var filecss = PATH_ICONS+name+".css";
+      var fileicons = PREBUILD_FILE;
       fs.readFile(filecss, 'utf8', function (err,css) {
         if (err) {
           message.console(message.getMessage("ADD_ICONS_FAILED"));

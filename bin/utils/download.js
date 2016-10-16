@@ -6,7 +6,7 @@ var message = require('./../utils/message');
 
 module.exports = {
 
-  download: function (url, callback){
+  get: function (url, callback){
     var result = {isValid:false, msg:""};
     var bar = null;
     var req = request(url);
@@ -31,7 +31,7 @@ module.exports = {
       .on('close', function (err) {
         bar.tick(bar.total - bar.curr);
         result.isValid=true;
-        result.data = { fileName : fileName, path: __dirname+"\\" + fileName };
+        result.data = { fileName : fileName, path: __dirname+"/" + fileName };
         callback(result);
       })
     } catch (e) {
@@ -41,7 +41,7 @@ module.exports = {
 
   androidSdkMacOsX : function(callback){
     var self = this;
-    self.download(packageJson.androidSdkMacOsX, function (res){
+    self.get(packageJson.androidSdkMacOsX, function (res){
       if(res.isValid){
         callback(res);
       } else {

@@ -6,6 +6,7 @@ Create functional prototypes for mobile applications
   [![Windows Build][appveyor-image]][appveyor-url]
   [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 
+See [documentation here](https://mockappframework.github.io/).
 
 ## Install
 

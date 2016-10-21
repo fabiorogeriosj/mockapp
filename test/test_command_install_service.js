@@ -15,11 +15,11 @@ describe('#install service camera', function() {
   before(function (done) {
       var installServiceCommand = spawn('node', ['../bin/mockapp','install','service',SERVICE_TEST,'--lang','en'], OPTIONS);
       installServiceCommand.stdout.on('data', function (data) {
-        captured_stdout += data.toString();
+        captured_stdout = data.toString();
       });
 
       installServiceCommand.stderr.on('data', function (data) {
-        captured_stdout += data.toString();
+        captured_stdout = data.toString();
       });
 
       installServiceCommand.on('exit', function (code) {

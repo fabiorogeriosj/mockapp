@@ -11,6 +11,7 @@ var config_lang = require('./lang/config');
 
 GLOBAL.packageJson = require('./../package.json');
 GLOBAL.PATH_ICONS = "./www/icons/";
+GLOBAL.PATH_SERVICES = "./www/js/services/";
 GLOBAL.PREBUILD_FILE = "./prebuild/icons.html";
 // if(os.platform() != "win32"){
 // 	GLOBAL.PATH_ICONS = ".\\www\\icons\\";
@@ -30,6 +31,7 @@ var command_bugs = require('./command/command_bugs');
 var command_config = require('./command/command_config');
 var command_add = require('./command/command_add');
 var command_icons = require('./command/command_icons');
+var command_install = require('./command/command_install');
 
 
 var getCommands = function (){
@@ -105,6 +107,8 @@ GLOBAL.commands = getCommands();
 				command_add.run()
 			} else if(commands.icons){
 				command_icons.run()
+			} else if(commands.install){
+				command_install.run()
 			} else {
 				message.console(message.getMessage("COMMAND_NOT_FOUND"))
 			}

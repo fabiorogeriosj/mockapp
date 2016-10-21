@@ -14,6 +14,7 @@ module.exports = {
     START_ANDROID_INSTALL: "Iniciando instalação do Android SDK...".green,
     START_ADD_ICONS_APP: "Adicionando pacote de ícones...".green,
     START_IMPORT_BASEAPP: "Baixando app base...".green,
+    START_INSTALL_SERVICE_APP: "Instalando serviço...".green,
     ERROR_CORDOVA: "Erro ao executar cordova: ".red,
     APP_NAME_NOT_FOUND_NEW_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp new MyFirstApp.",
     APP_NAME_NOT_FOUND_DELETE_APP: " Ops! ".bgRed.white + " Você deve informar o nome do aplicativo, exemplo: mockapp delete MyFirstApp.",
@@ -59,10 +60,12 @@ module.exports = {
     INSTALLING_ANDROID: "Instalando Android SDK...",
     VERIFY_ENVIRONMENT: "Verificando dependências...".green,
     TYPE_NOT_FOUND_ADD: " Ops! ".bgRed.white + " Você deve informar o que vai adicionar no app.",
+    TYPE_NOT_FOUND_INSTALL: " Ops! ".bgRed.white + " Você deve informar o que vai instalar no app.",
     TYPE_NOT_EXIST_ADD: " Ops! ".bgRed.white + " O tipo informado não é valido.",
     NAME_NOT_FOUND_ADD_CONTROLLER: " Ops! ".bgRed.white + " Você deve informar o nome do controller.",
     NAME_NOT_FOUND_ADD_SERVICE: " Ops! ".bgRed.white + " Você deve informar o nome do service.",
     NAME_NOT_FOUND_ADD_PAGE: " Ops! ".bgRed.white + " Você deve informar o nome da nova página.",
+    NAME_NOT_FOUND_INSTALL_SERVICE: " Ops! ".bgRed.white + " Você deve informar o nome o serviço que deseja instalar.",
     ADD_CONTROLLER_FAILED: " Ops! ".bgRed.white + " Não foi possível criar controller :(",
     ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar service :(",
     ADD_PAGE_FAILED: " Ops! ".bgRed.white + " Não foi possível criar uma nova página :(",
@@ -75,9 +78,12 @@ module.exports = {
     PARAMS_INCORRECT_ADD_SERVICE: " Ops! ".bgRed.white + " O nome do service foi informado de forma incorreta, exemplos: \nmockapp add service userService.",
     PARAMS_INCORRECT_ADD_PAGE: " Ops! ".bgRed.white + " O nome da nova página foi informado de forma incorreta, exemplos: \nmockapp add page user.",
     PARAMS_INCORRECT_ADD_ICONS: " Ops! ".bgRed.white + " A URL do pacote de ícones foi informado de forma incorreta, exemplos: \nmockapp add icons http://www.flaticon.com/packs/material-design",
+    PARAMS_INCORRECT_INSTALL_SERVICE: " Ops! ".bgRed.white + " Nome do serviço foi informado de forma incorreta, exemplos: \nmockapp install service camera",
     ADD_PAGE_SUCCESS: " Show! ".bgGreen.black + " Página criada com sucesso :) ",
     ADD_ROUTE_SUCCESS: " Show! ".bgGreen.black + " Rota adicionada com sucesso :) ",
     NAME_NOT_FOUND_ADD_ICONS: " Ops! ".bgRed.white + " Você deve informar a URL do pacote de ícones.",
+    SERVICE_NOT_FOUND: " Ops! ".bgRed.white + " Este serviço não existe, verifique os serviços disponíveis na documentação.",
+    SERVICE_THERE_IS: " Ops! ".bgRed.white + " Este serviço já está instalado!",
 
 
     THERE_IS_NEW_VERSION: function(packageJson){
@@ -95,6 +101,9 @@ module.exports = {
         console.log("Adicione o atributo abaixo em seu elemento:");
         console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
       }
+    },
+    SERVICE_INSTALL_SUCCESS: function(obj){
+      console.log(" Show! ".bgGreen.black + " Serviço instalado com sucesso :)");
     },
     EXAMPLE_GOTO_PAGE: function(name){
       console.log("\nAdicione o atributo abaixo em seu elemento:");

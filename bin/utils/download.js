@@ -13,11 +13,15 @@ module.exports = {
     var fileName = url.split("/")[url.split("/").length-1];
     try {
       req.on('data', function (chunk) {
+        var size = parseInt(req.response.headers['content-length']);
+        if(size <= 0){
+          size = 1;
+        }
         bar = bar || new ProgressBar(message.getMessage("DOWNLOADING") + ' [:bar] :percent :etas', {
           complete: '=',
           incomplete: ' ',
           width: 20,
-          total: parseInt(req.response.headers['content-length'])
+          total: size
         });
 
         bar.tick(chunk.length);

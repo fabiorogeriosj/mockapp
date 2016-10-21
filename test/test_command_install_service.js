@@ -27,7 +27,7 @@ describe('#install service camera', function() {
       });
   });
   it('should show message about command exec', function() {
-      captured_stdout.should.to.contain('Add the service to your controller like');
+      captured_stdout.should.to.contain('HomeController.$inject');
   });
 
 });

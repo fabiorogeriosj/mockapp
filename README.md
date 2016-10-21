@@ -59,18 +59,18 @@ mockapp build android
 mockapp run android
 ```
 
-## Components
+## Install service
 
 ```
-mockapp add component list
-```
-
-```
-mockapp add component list-avatar
+mockapp install service camera
 ```
 
 ```
-mockapp add component button-login-facebook
+mockapp install service pushNotification
+```
+
+```
+mockapp install service login-facebook
 ```
 
 ## Tools

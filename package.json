@@ -13,6 +13,7 @@
     "win32": "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip"
   },
   "baseapp": "https://github.com/fabiorogeriosj/mockapp-baseapp/archive/master.zip",
+  "servicesRaw": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp-services/master",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabiorogeriosj/mockapp.git"

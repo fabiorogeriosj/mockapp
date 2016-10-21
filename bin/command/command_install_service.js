@@ -23,7 +23,7 @@ module.exports = {
                   if(res.isValid){
                     self.installService(serviceData, function(res){
                       if(res.isValid){
-                        message.writeMessage("SERVICE_INSTALL_SUCCESS", serviceData);
+                        message.console(message.getMessage("SERVICE_INSTALL_SUCCESS"))
                       }
                     });
                   }

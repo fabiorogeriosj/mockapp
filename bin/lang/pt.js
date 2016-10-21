@@ -84,6 +84,7 @@ module.exports = {
     NAME_NOT_FOUND_ADD_ICONS: " Ops! ".bgRed.white + " Você deve informar a URL do pacote de ícones.",
     SERVICE_NOT_FOUND: " Ops! ".bgRed.white + " Este serviço não existe, verifique os serviços disponíveis na documentação.",
     SERVICE_THERE_IS: " Ops! ".bgRed.white + " Este serviço já está instalado!",
+    SERVICE_INSTALL_SUCCESS:  " Show! ".bgGreen.black + " Serviço instalado com sucesso :) ",
 
 
     THERE_IS_NEW_VERSION: function(packageJson){
@@ -101,9 +102,6 @@ module.exports = {
         console.log("Adicione o atributo abaixo em seu elemento:");
         console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
       }
-    },
-    SERVICE_INSTALL_SUCCESS: function(obj){
-      console.log(" Show! ".bgGreen.black + " Serviço instalado com sucesso :)");
     },
     EXAMPLE_GOTO_PAGE: function(name){
       console.log("\nAdicione o atributo abaixo em seu elemento:");

@@ -84,6 +84,7 @@ module.exports = {
     NAME_NOT_FOUND_ADD_ICONS: " Ops! ".bgRed.white + " You must enter the URL of the icon pack.",
     SERVICE_NOT_FOUND: " Ops! ".bgRed.white + " This service does not exist, check the services available in the documentation.",
     SERVICE_THERE_IS: " Ops! ".bgRed.white + " This service is already installed!",
+    SERVICE_INSTALL_SUCCESS: " Cool! ".bgGreen.black + " Service successfully installed :) ",
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);
@@ -100,9 +101,6 @@ module.exports = {
         console.log("Add the attribute down in his element:");
         console.log("<div ", "ng-controller=\"".yellow+obj.name.yellow+"\"".yellow, "></div> ");
       }
-    },
-    SERVICE_INSTALL_SUCCESS: function(obj){
-      console.log(" Cool! ".bgGreen.black + " Service successfully installed :)");
     },
     EXAMPLE_GOTO_PAGE: function(name){
       console.log("Add the attribute down in his element:");

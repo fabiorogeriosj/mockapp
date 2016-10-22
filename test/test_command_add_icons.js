@@ -8,6 +8,7 @@ var spawn = require('child_process').spawn;
 
 require('./test_command_new');
 var PACK_ICO_TEST = "http://www.flaticon.com/packs/essential-set-2";
+var NAME_ICO_TEST = "essentialset2";
 var OPTIONS = { cwd : NAME_APP }
 
 describe('#add pack icons in app', function() {
@@ -28,6 +29,10 @@ describe('#add pack icons in app', function() {
   });
   it('should show message about command exec', function() {
       captured_stdout.should.to.contain('Pack icons successfully added :)');
+  });
+  it('should create files', function() {
+      var files = fs.readdirSync(NAME_APP+"/www/icons");
+      expect(files).to.include(NAME_ICO_TEST+".css").to.include(NAME_ICO_TEST+'.ttf');
   });
 
 });

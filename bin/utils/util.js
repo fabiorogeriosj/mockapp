@@ -137,7 +137,7 @@ module.exports = {
           message.writeMessage("CHANGE_INDEX_ADD_CSS_FAILED", file);
           callback(result);
         } else {
-          indexHtml = indexHtml.replace(tagFilter, "<link rel=\"stylesheet\" type=\"text/css\" href=\"icons/"+file+".css\"></link>"+"\n        "+tagFilter);
+          indexHtml = indexHtml.replace(tagFilter, "<link rel=\"stylesheet\" type=\"text/css\" href=\""+file+"\"></link>"+"\n        "+tagFilter);
           fs.writeFile("./www/index.html", indexHtml, function(err) {
             if (err) {
               message.writeMessage("CHANGE_INDEX_ADD_CSS_FAILED", file);

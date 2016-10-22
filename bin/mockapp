@@ -12,6 +12,7 @@ var config_lang = require('./lang/config');
 GLOBAL.packageJson = require('./../package.json');
 GLOBAL.PATH_ICONS = "./www/icons/";
 GLOBAL.PATH_SERVICES = "./www/js/services/";
+GLOBAL.PATH_CSS = "./www/css/";
 GLOBAL.PREBUILD_FILE = "./prebuild/icons.html";
 // if(os.platform() != "win32"){
 // 	GLOBAL.PATH_ICONS = ".\\www\\icons\\";

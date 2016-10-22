@@ -131,7 +131,7 @@ module.exports = {
               }
               callback(result);
             } else {
-              util.addTagCssIndex(pack.name, function(res){
+              util.addTagCssIndex("icons/"+pack.name+".css", function(res){
                 callback(res);
               });
             }

@@ -70,6 +70,7 @@ module.exports = {
     },
     installService: function(serviceData, callback){
       var result = {isValid:false, msg:""};
+      var self = this;
       var url = packageJson.servicesRaw + "/"+serviceData.name+"/"+serviceData.serviceFile;
       util.createIfNotExistDirectory(PATH_SERVICES);
       request(url, function (error, response, body) {
@@ -83,6 +84,51 @@ module.exports = {
               callback(result);
             } else {
               util.addTagServiceIndex(serviceData.serviceFile, function(res){
+                if(res.isValid){
+                  if(serviceData.style){
+                    self.installCss(serviceData, function(res){
+                      if(res.isValid){
+                        callback(res);
+                      } else {
+                        message.console(message.getMessage("ADD_SERVICE_FAILED"));
+                        callback(res);
+                      }
+                    });
+                  } else {
+                    callback(res);
+                  }
+                } else {
+                  message.console(message.getMessage("ADD_SERVICE_FAILED"));
+                  callback(res);
+                }
+              });
+            }
+          });
+        } else {
+          message.console(message.getMessage("ADD_SERVICE_FAILED"));
+          callback(result);
+          if(commands.log){
+              console.log(error);
+          }
+        }
+      });
+    },
+    installCss: function(serviceData, callback){
+      var result = {isValid:false, msg:""};
+      var self = this;
+      var url = packageJson.servicesRaw + "/"+serviceData.name+"/"+serviceData.style+".css";
+      util.createIfNotExistDirectory(PATH_CSS);
+      request(url, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          fs.writeFile(PATH_CSS + serviceData.style+".css", body, function(err) {
+            if (err) {
+              message.console(message.getMessage("ADD_SERVICE_FAILED"))
+              if(commands.log){
+                  console.log(err);
+              }
+              callback(result);
+            } else {
+              util.addTagCssIndex("css/"+serviceData.style+".css", function(res){
                 callback(res);
               });
             }

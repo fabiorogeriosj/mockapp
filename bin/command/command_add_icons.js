@@ -37,7 +37,10 @@ module.exports = {
                   }
                 })
               } else {
-                message.console(message.getMessage("ADD_ICONS_FAILED"))
+                message.console(message.getMessage("ADD_ICONS_FAILED"));
+                if(commands.log){
+                  console.log(error);
+                }
               }
             })
           } else {
@@ -77,8 +80,11 @@ module.exports = {
             }
           });
       } catch (e) {
-        message.console(message.getMessage("ADD_ICONS_FAILED"))
+        message.console(message.getMessage("ADD_ICONS_FAILED"));
         callback(result);
+        if(commands.log){
+          console.log(e);
+        }
       }
     },
     renameAndMoveTtf: function(pack, callback){
@@ -88,7 +94,7 @@ module.exports = {
       util.createIfNotExistDirectory(PATH_ICONS);
       fs.rename(font, fontNew, function(err) {
           if (err) {
-            message.console(message.getMessage("ADD_ICONS_FAILED"))
+            message.console(message.getMessage("ADD_ICONS_FAILED"));
             if(commands.log){
               console.log(err);
               callback(result);

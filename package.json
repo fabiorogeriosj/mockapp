@@ -1,6 +1,6 @@
 {
   "name": "mockapp",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Create functional prototypes for mobile application",
   "main": "./bin/mockapp",
   "scripts": {

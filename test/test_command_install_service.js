@@ -1,13 +1,11 @@
 var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
-var assert = chai.assert;
 var fs = require('fs');
 var exec = require('child_process').exec;
 var spawnSync = require('child_process').spawnSync;
 var spawn = require('child_process').spawn;
 
-chai.use(require('chai-fs'));
 
 require('./test_command_new');
 var SERVICE_TEST = "camera";
@@ -31,7 +29,8 @@ describe('#install service camera', function() {
       });
   });
   it('check if file service exist', function() {
-      assert.isFile(NAME_APP + "/www/js/services/"+SERVICE_FILE_TEST);
+      var files = fs.readdirSync(NAME_APP+"/www/js/services");
+      expect(files).to.include(SERVICE_FILE_TEST);
   });
 
 });

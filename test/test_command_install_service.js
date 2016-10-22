@@ -1,13 +1,17 @@
 var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
+var assert = chai.assert;
 var fs = require('fs');
 var exec = require('child_process').exec;
 var spawnSync = require('child_process').spawnSync;
 var spawn = require('child_process').spawn;
 
+chai.use(require('chai-fs'));
+
 require('./test_command_new');
 var SERVICE_TEST = "camera";
+var SERVICE_FILE_TEST = "cameraService.js";
 var OPTIONS = { cwd : NAME_APP }
 
 describe('#install service camera', function() {
@@ -15,12 +19,10 @@ describe('#install service camera', function() {
   before(function (done) {
       var installServiceCommand = spawn('node', ['../bin/mockapp','install','service',SERVICE_TEST,'--lang','en'], OPTIONS);
       installServiceCommand.stdout.on('data', function (data) {
-        console.log("stdout: ", data.toString());
         captured_stdout = data.toString();
       });
 
       installServiceCommand.stderr.on('data', function (data) {
-        console.log("stderr: ", data.toString());
         captured_stdout = data.toString();
       });
 
@@ -28,8 +30,8 @@ describe('#install service camera', function() {
         done();
       });
   });
-  it('should show message about command exec', function() {
-      captured_stdout.should.to.contain('Service successfully installed :)');
+  it('check if file service exist', function() {
+      assert.isFile(NAME_APP + "/www/js/services/"+SERVICE_FILE_TEST);
   });
 
 });

@@ -25,9 +25,9 @@ mockapp new "My First App"
 ```
 
 Options:
-- `--id "br.com.fistapp"`: Set id app.
-- `--name "My Fist App "`: Set name app.
-- `--path directory_app`: Set directory app.
+* `--id "br.com.fistapp"`: Set id app.
+* `--name "My Fist App "`: Set name app.
+* `--path directory_app`: Set directory app. 
 
 example:
 ```

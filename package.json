@@ -10,7 +10,12 @@
   "packageJsonRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/package.json",
   "messageFromRepo": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp/master/message.json",
   "androidSdk": {
-    "win32": "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip"
+    "win32": {
+      "x64": "https://github.com/fabiorogeriosj/android-sdk-windows/archive/master.zip"
+    },
+    "darwin": {
+      "x64" : "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip"
+    }
   },
   "baseapp": "https://github.com/fabiorogeriosj/mockapp-baseapp/archive/master.zip",
   "servicesRaw": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp-services/master",
@@ -38,7 +43,6 @@
     "minimist": "^1.2.0",
     "opener": "^1.4.2",
     "os-locale": "^1.4.0",
-    "progress": "^1.1.8",
     "request": "^2.75.0",
     "xml2js": "^0.4.17"
   },

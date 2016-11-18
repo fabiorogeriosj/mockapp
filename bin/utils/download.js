@@ -1,6 +1,5 @@
 var fs = require('fs');
 var request = require('request');
-var ProgressBar = require('progress');
 var https = require('https');
 var message = require('./../utils/message');
 
@@ -8,23 +7,23 @@ module.exports = {
 
   get: function (url, callback){
     var result = {isValid:false, msg:""};
-    var bar = null;
     var req = request(url);
     var fileName = url.split("/")[url.split("/").length-1];
+    var cur = 0;
+    var len = 0;
+    var total = 0;
+    var spinner = message.startSpinner("Downloading");
     try {
+      req.on('response', function (data) {
+        len = parseInt(data.headers['content-length'], 10);
+        total = len / 1048576; //1048576 - bytes in  1Megabyte
+      })
       req.on('data', function (chunk) {
-        var size = parseInt(req.response.headers['content-length']);
-        if(size <= 0){
-          size = 1;
-        }
-        bar = bar || new ProgressBar(message.getMessage("DOWNLOADING") + ' [:bar] :percent :etas', {
-          complete: '=',
-          incomplete: ' ',
-          width: 20,
-          total: size
-        });
-
-        bar.tick(chunk.length);
+        cur += chunk.length;
+        var progs = (100.0 * cur / len).toFixed(2) + "% ";
+        var progsSize = (cur / 1048576).toFixed(2);
+        var totalSize = total.toFixed(2);
+        spinner.message("Downloading: " + "("+progsSize+"/"+totalSize+" mb) - "+progs);
       })
       .on('error', function (err) {
           message.console(message.getMessage("DOWNLOAD_FAILED"));
@@ -33,7 +32,7 @@ module.exports = {
       })
       .pipe(fs.createWriteStream(__dirname+"/" + fileName))
       .on('close', function (err) {
-        bar.tick(bar.total - bar.curr);
+        spinner.stop();
         result.isValid=true;
         result.data = { fileName : fileName, path: __dirname+"/" + fileName };
         callback(result);

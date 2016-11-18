@@ -85,6 +85,8 @@ module.exports = {
     SERVICE_NOT_FOUND: " Ops! ".bgRed.white + " Este serviço não existe, verifique os serviços disponíveis na documentação.",
     SERVICE_THERE_IS: " Ops! ".bgRed.white + " Este serviço já está instalado!",
     SERVICE_INSTALL_SUCCESS:  " Show! ".bgGreen.black + " Serviço instalado com sucesso :) ",
+    SORRY_NOT_ENABLED_NOW: " Ops! ".bgRed.white + " Foi mal, este recurso não está legal neste momento!",
+    ANDROID_INSTALL_NOT_SUPPORTED: " Ops! ".bgRed.white + " No momento não temos o instalador para este sistema operacional com esta arquitetura!",
 
 
     THERE_IS_NEW_VERSION: function(packageJson){

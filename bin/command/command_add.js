@@ -11,7 +11,7 @@ var command_add_icons = require('./command_add_icons');
 
 module.exports = {
     run : function (){
-      
+
       util.execCascadeWithCallback([cordova.checkCordovaInstalled, project.checkIntoProject], function(res){
         if(res.isValid){
           if(commands._.length < 2){
@@ -25,7 +25,8 @@ module.exports = {
             } else if(type == "page"){
               command_add_page.run();
             } else if(type == "icons"){
-              command_add_icons.run();
+              //command_add_icons.run();
+              message.console(message.getMessage("SORRY_NOT_ENABLED_NOW"))
             } else {
               message.console(message.getMessage("TYPE_NOT_EXIST_ADD"))
             }

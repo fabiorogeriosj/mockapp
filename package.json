@@ -17,6 +17,11 @@
       "x64" : "https://github.com/fabiorogeriosj/android-sdk-macosx/archive/master.zip"
     }
   },
+  "javaJdk": {
+    "win32": {
+      "x64": "https://github.com/fabiorogeriosj/java-jdk-windows/archive/master.zip"
+    }
+  },
   "baseapp": "https://github.com/fabiorogeriosj/mockapp-baseapp/archive/master.zip",
   "servicesRaw": "https://raw.githubusercontent.com/fabiorogeriosj/mockapp-services/master",
   "repository": {

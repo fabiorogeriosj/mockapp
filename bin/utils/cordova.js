@@ -1,6 +1,8 @@
 var fs = require('fs');
+var os = require('os');
 var childProcess = require('child_process');
 var message = require('./message');
+var util = require('./util');
 var install = require('./install');
 var parseString = require('xml2js').parseString;
 var configfile = './config.xml';
@@ -69,11 +71,29 @@ module.exports = {
         }
       });
     },
+    getConfig: function(){
+      var javaInstall = os.homedir() + "/.mockapp/javajdk";
+      var androidInstall = os.homedir() + "/.mockapp/androidsdk";
+      var existJavaInstall = util.fileExists(javaInstall);
+      var existAndroidInstall = util.fileExists(androidInstall);
+      var existJavaEnv = process.env.JAVA_HOME;
+      var existAndroidEnv = process.env.ANDROID_HOME;
+      var config = {};
+      config.env = {};
+      if(!existJavaEnv && existJavaInstall){
+        config.env.JAVA_HOME = javaInstall;
+      }
+      if(!existAndroidEnv && existAndroidInstall){
+        config.env.ANDROID_HOME = androidInstall;
+      }
+      return config;
+    },
 
     checkAndInstallEnvironment: function (platform, callback){
       var result = {isValid:false, msg:""};
       var self = this;
-      var cordovaProcess = childProcess.exec("cordova requirements");
+      var config = self.getConfig();
+      var cordovaProcess = childProcess.exec("cordova requirements", config);
       var restProcess = "";
       cordovaProcess.stdout.on('data', function(data) {
         if(data.trim().toString()){
@@ -105,6 +125,12 @@ module.exports = {
                 }
               }
             });
+          } else if(needAndroid){
+            install.installAndroid(function (res){
+                if(res.isValid){
+                  callback(res);
+                }
+            });
           }
         }
       });
@@ -134,6 +160,30 @@ module.exports = {
           if(commands.log){
             message.console(command);
           }
+          callback(result);
+        }
+      });
+    },
+
+    build : function (platform, callback){
+      var result = {isValid:false, msg:""};
+      var command = 'cordova build '+platform;
+      var config = this.getConfig();
+      var cordovaProcess = childProcess.exec(command, config);
+
+      cordovaProcess.stdout.on('data', function(data) {
+        console.log(data.trim().toString());
+      });
+
+      cordovaProcess.stderr.on('data', function(data) {
+        console.log(data.trim().toString().red);
+      });
+
+      cordovaProcess.on('close', function(error) {
+        if(!error){
+          result.isValid=true;
+          callback(result);
+        } else {
           callback(result);
         }
       });

@@ -70,6 +70,8 @@ module.exports = {
     ADD_SERVICE_FAILED: " Ops! ".bgRed.white + " Could not create service :(",
     ADD_PAGE_FAILED: " Ops! ".bgRed.white + " Could not create a new page :(",
     ADD_ICONS_FAILED: " Ops! ".bgRed.white + " Unable to add the icon pack :(",
+    INSTALL_JAVA_FAILED: " Ops! ".bgRed.white + " Failed to install Java, please do this manual installation :(",
+    INSTALL_ANDROID_FAILED: " Ops! ".bgRed.white + " Failed to install Android, please do this manual installation :(",
     CONTROLLER_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a controller with that name.",
     SERVICE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a service with that name.",
     PAGE_EXISTS_THIS_NAME: " Ops! ".bgRed.white + " There is already a page with that name.",
@@ -86,7 +88,9 @@ module.exports = {
     SERVICE_THERE_IS: " Ops! ".bgRed.white + " This service is already installed!",
     SERVICE_INSTALL_SUCCESS: " Cool! ".bgGreen.black + " Service successfully installed :) ",
     SORRY_NOT_ENABLED_NOW: " Ops! ".bgRed.white + " Wrong, this feature is not good right now!",
-    ANDROID_INSTALL_NOT_SUPPORTED: " Ops! ".bgRed.white + " At the moment we do not have the installer for this operating system with this architecture!",
+    ANDROID_INSTALL_NOT_SUPPORTED: " Ops! ".bgRed.white + " At the moment we do not have the installer of Android for this operating system with this architecture!",
+    JAVA_INSTALL_NOT_SUPPORTED: " Ops! ".bgRed.white + " At the moment we do not have the installer of Java for this operating system with this architecture!",
+    INSTALLING: "Installing...".green,
 
     THERE_IS_NEW_VERSION: function(packageJson){
       console.log("                                               ".bgYellow.black);

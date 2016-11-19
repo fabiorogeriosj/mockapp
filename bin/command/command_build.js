@@ -25,13 +25,6 @@ module.exports = {
                           self.build(platform);
                       }
                     });
-
-                    // message.console(message.getMessage("DOWNLOAD_ANDROID_SDK"));
-                    // download.androidSdkMacOsX(function (res){
-                    //   if(res.isValid){
-                    //     console.log("BAIXADO (ok)".green);
-                    //   }
-                    // });
                   }
                 });
 
@@ -45,13 +38,9 @@ module.exports = {
     },
     build: function (platform){
       message.console(message.getMessage("START_BUILD_APP"));
-      var spinner = message.startSpinner(message.getMessage("BUIDING_APP"));
-      var exec = 'cordova build '+platform;
-      cordova.exec(exec, function (res){
+      cordova.build(platform, function (res){
         if(res.isValid){
-          spinner.stop();
           message.console(message.getMessage("BUILD_SUCCESS"));
-          message.console(res.msg);
         }
       });
     }

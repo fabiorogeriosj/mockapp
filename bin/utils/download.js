@@ -20,10 +20,20 @@ module.exports = {
       })
       req.on('data', function (chunk) {
         cur += chunk.length;
-        var progs = (100.0 * cur / len).toFixed(2) + "% ";
+        var progs = (100.0 * cur / len).toFixed(2);
         var progsSize = (cur / 1048576).toFixed(2);
         var totalSize = total.toFixed(2);
-        spinner.message("Downloading: " + "("+progsSize+"/"+totalSize+" mb) - "+progs);
+        var msg = "Downloading";
+        if(!isNaN(progsSize) && !isNaN(totalSize)){
+          msg += ": ("+progsSize+"/"+totalSize+" mb)";
+        }
+        if(!isNaN(progs)){
+          msg += " " + progs+"%";
+        }
+        if(isNaN(progs) && isNaN(totalSize)){
+          msg += "...";
+        }
+        spinner.message(msg);
       })
       .on('error', function (err) {
           message.console(message.getMessage("DOWNLOAD_FAILED"));

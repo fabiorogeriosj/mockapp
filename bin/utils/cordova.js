@@ -80,6 +80,12 @@ module.exports = {
       var existAndroidEnv = process.env.ANDROID_HOME;
       var config = {};
       config.env = {};
+      if(existJavaEnv){
+        config.env.JAVA_HOME = process.env.JAVA_HOME;
+      }
+      if(existAndroidEnv){
+        config.env.ANDROID_HOME = process.env.ANDROID_HOME;
+      }
       if(!existJavaEnv && existJavaInstall){
         config.env.JAVA_HOME = javaInstall;
       }
@@ -172,7 +178,9 @@ module.exports = {
       var cordovaProcess = childProcess.exec(command, config);
 
       cordovaProcess.stdout.on('data', function(data) {
-        console.log(data.trim().toString());
+        if(data.trim().toString().length > 1){
+            console.log(data.trim().toString());
+        }
       });
 
       cordovaProcess.stderr.on('data', function(data) {

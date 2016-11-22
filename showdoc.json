@@ -1,3 +1,6 @@
 {
-    "previewMobile": true
+    "previewMobile": true,
+    "path": "./docs",
+    "dest": "./showdoc",
+    "assets": "../../mockapp-baseapp/www/lib/mockapp-colors.css, ../../mockapp-baseapp/www/lib/mockapp.css, ../../mockapp-baseapp/www/icons/materialdesign.css"
 }

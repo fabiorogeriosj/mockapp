@@ -1,4 +1,4 @@
-[showdoc_index]: 450
+[showdoc_index]: 350
 [showdoc_group]: components
 
 ## Header

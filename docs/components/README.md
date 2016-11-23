@@ -1,4 +1,4 @@
-[showdoc_index]: 400
+[showdoc_index]: 300
 [showdoc_id]: components
 
 # Components

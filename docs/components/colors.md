@@ -22,14 +22,14 @@ You can put the class color in any component, see the example:
 </div>
 <div class="header sub purple-700">
   <p class="italic">
-    <i class="materialdesign-tick-inside-circle"></i>
+    <i class="md-tick-inside-circle"></i>
     Your app is ready to world!
   </p>
 </div>
 <div class="content has-header has-sub padding purple-50 center">
   <h2 class="purple-800">Here we are!</h2>
   <div class="padding">
-    <i class="materialdesign-emoticon-with-happy-face purple-100 big"></i>
+    <i class="md-good-mood-emoticon purple-100 big"></i>
   </div>
   <p  class="purple-600">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit,

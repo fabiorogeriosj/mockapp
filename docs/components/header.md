@@ -15,16 +15,16 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 <div class="header teal">
   <div class="left">
     <button class="icon">
-      <i class="materialdesign-menu-button"></i>
+      <i class="md-menu-button"></i>
     </button>
   </div>
   <h1>Title of header</h1>
   <div class="right">
     <button class="icon">
-      <i class="materialdesign-searching-magnifying-glass"></i>
+      <i class="md-searching-magnifying-glass"></i>
     </button>
     <button class="icon">
-      <i class="materialdesign-show-more-button-with-three-dots"></i>
+      <i class="md-show-more-button-with-three-dots"></i>
     </button>
   </div>
 </div>
